@@ -8,7 +8,7 @@ function Header() {
             <NavLink>Home</NavLink>
             <NavLink>Calendar</NavLink>
             <NavLink>Students</NavLink>
-            <NavLink>New Student</NavLink>
+            <NavLink>Add Student</NavLink>
             <NavLink>Settings</NavLink>
         </div>
     );

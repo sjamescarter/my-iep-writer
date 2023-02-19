@@ -1,17 +1,17 @@
 import { Route, Switch } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 import './App.css';
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <Switch>
+        {/* <Route></Route>
         <Route></Route>
         <Route></Route>
         <Route></Route>
-        <Route></Route>
-        <Route></Route>
-      </Switch>
+        <Route></Route> */}
       <Footer></Footer>
     </div>
   );

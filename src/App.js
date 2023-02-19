@@ -1,9 +1,10 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <div>
+      <Header></Header>
       <Switch>
         <Route></Route>
         <Route></Route>
@@ -11,6 +12,7 @@ function App() {
         <Route></Route>
         <Route></Route>
       </Switch>
+      <Footer></Footer>
     </div>
   );
 }

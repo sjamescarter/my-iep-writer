@@ -11,6 +11,15 @@ const blankForm = {
 function AddStudent() {
     const [ form, setForm ] = useState(blankForm)
 
+    function handleChange(e) {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    console.log(form)
+
     return (
         <div>
             <h2>Add Student</h2>
@@ -20,6 +29,7 @@ function AddStudent() {
                     type="number" 
                     name="id" 
                     value={form.id}
+                    onChange={handleChange}
                 />
                 <br></br>
                 <label htmlFor="firstName">First Name: </label>
@@ -27,6 +37,7 @@ function AddStudent() {
                     type="text" 
                     name="firstName" 
                     value={form.firstName}
+                    onChange={handleChange}
                 />
                 <br></br>
                 <label htmlFor="lastName">Last Name: </label>
@@ -34,6 +45,7 @@ function AddStudent() {
                     type="text" 
                     name="lastName" 
                     value={form.lastName}
+                    onChange={handleChange}
                 />
                 <br></br>
                 <label htmlFor="birthdate">Birthdate: </label>
@@ -41,6 +53,7 @@ function AddStudent() {
                     type="date" 
                     name="birthdate" 
                     value={form.birthdate}
+                    onChange={handleChange}
                 />
                 <br></br>
                 <label htmlFor="iepDate">IEP Deadline: </label>
@@ -48,6 +61,7 @@ function AddStudent() {
                     type="date" 
                     name="iepDate" 
                     value={form.iepDate}
+                    onChange={handleChange}
                 />
                 <br></br>
                 <input 

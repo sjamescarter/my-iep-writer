@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const StyledNavLink = styled(NavLink)`
-    background: ${({ isActive }) => isActive ? "#17C3B2" : "#227C9D"};
+    background: #227C9D;
     border-radius: 1em;
     color: #EBEBEB;
     margin: .5em;
@@ -12,19 +12,18 @@ const StyledNavLink = styled(NavLink)`
     width: 50px;
 `
 
-let activeStyle = {
-    background: "17C3B2",
-    textDecoraton: "none"
+const activeStyle = {
+    background: "#2892B8"
 }
 
 function NavBar() {
     return(
         <div>
-            <StyledNavLink to="/">Home</StyledNavLink>
-            <StyledNavLink to="/calendar">Calendar</StyledNavLink>
-            <StyledNavLink to="/students">Students</StyledNavLink>
-            <StyledNavLink to="/students/add">Add Student</StyledNavLink>
-            <StyledNavLink to="/settings">Settings</StyledNavLink>
+            <StyledNavLink to="/" exact activeStyle={activeStyle}>Home</StyledNavLink>
+            <StyledNavLink to="/calendar" activeStyle={activeStyle}>Calendar</StyledNavLink>
+            <StyledNavLink to="/students" exact activeStyle={activeStyle}>Students</StyledNavLink>
+            <StyledNavLink to="/students/add"activeStyle={activeStyle}>Add Student</StyledNavLink>
+            <StyledNavLink to="/settings"activeStyle={activeStyle}>Settings</StyledNavLink>
         </div>
     );
 }

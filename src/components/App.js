@@ -1,7 +1,12 @@
 import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
+import Calendar from './Calendar';
+import Students from './Students';
+import AddStudent from './AddStudent';
+import Settings from './Settings';
 import Footer from './Footer';
+
 
 function App() {
   return (
@@ -17,11 +22,11 @@ function App() {
         <Route exact path="/students">
           <Students />
         </Route>
-        <Route>
-          <AddStudent path="/students/new"/>
+        <Route path="/students/new">
+          <AddStudent />
         </Route>
-        <Route>
-          <Settings path="/settings" />
+        <Route path="/settings">
+          <Settings />
         </Route>
       </Switch>
       <Footer></Footer>

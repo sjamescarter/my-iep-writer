@@ -22,10 +22,10 @@ function NavBar() {
             <StyledNavLink to="/" exact activeStyle={activeStyle}>Home</StyledNavLink>
             <StyledNavLink to="/calendar" activeStyle={activeStyle}>Calendar</StyledNavLink>
             <StyledNavLink to="/students" exact activeStyle={activeStyle}>Students</StyledNavLink>
-            <StyledNavLink to="/students/add"activeStyle={activeStyle}>Add Student</StyledNavLink>
+            <StyledNavLink to="/students/new"activeStyle={activeStyle}>Add Student</StyledNavLink>
             <StyledNavLink to="/settings"activeStyle={activeStyle}>Settings</StyledNavLink>
         </div>
     );
 }
 
-export default NavBar
+export default NavBar;

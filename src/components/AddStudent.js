@@ -8,27 +8,31 @@ const blankForm = {
     iepDate: "",
 }
 
-function AddStudent() {
-    const [ form, setForm ] = useState(blankForm)
+function AddStudent({ onSubmit }) {
+    const [ formData, setFormData ] = useState(blankForm);
 
     function handleChange(e) {
-        setForm({
-            ...form,
+        setFormData({
+            ...formData,
             [e.target.name]: e.target.value
-        })
+        });
     }
 
-    console.log(form)
+    function handleSubmit(e) {
+        e.preventDefault();
+        onSubmit(formData);
+        setFormData(blankForm);
+    }
 
     return (
         <div>
             <h2>Add Student</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="id">Student ID: </label>
                 <input 
                     type="number" 
                     name="id" 
-                    value={form.id}
+                    value={formData.id}
                     onChange={handleChange}
                 />
                 <br></br>
@@ -36,7 +40,7 @@ function AddStudent() {
                 <input 
                     type="text" 
                     name="firstName" 
-                    value={form.firstName}
+                    value={formData.firstName}
                     onChange={handleChange}
                 />
                 <br></br>
@@ -44,7 +48,7 @@ function AddStudent() {
                 <input 
                     type="text" 
                     name="lastName" 
-                    value={form.lastName}
+                    value={formData.lastName}
                     onChange={handleChange}
                 />
                 <br></br>
@@ -52,7 +56,7 @@ function AddStudent() {
                 <input 
                     type="date" 
                     name="birthdate" 
-                    value={form.birthdate}
+                    value={formData.birthdate}
                     onChange={handleChange}
                 />
                 <br></br>
@@ -60,7 +64,7 @@ function AddStudent() {
                 <input 
                     type="date" 
                     name="iepDate" 
-                    value={form.iepDate}
+                    value={formData.iepDate}
                     onChange={handleChange}
                 />
                 <br></br>

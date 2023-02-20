@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
@@ -9,6 +10,14 @@ import Footer from './Footer';
 
 
 function App() {
+  const [ studentList, setStudentList ] = useState([]);
+
+  function onSubmit(newStudent) {
+    setStudentList([...studentList, newStudent]);
+  }
+
+  console.log(studentList);
+
   return (
     <div>
       <Header></Header>
@@ -23,7 +32,7 @@ function App() {
           <Students />
         </Route>
         <Route path="/students/new">
-          <AddStudent />
+          <AddStudent onSubmit={onSubmit}/>
         </Route>
         <Route path="/settings">
           <Settings />

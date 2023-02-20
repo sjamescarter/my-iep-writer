@@ -3,14 +3,19 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const StyledNavLink = styled(NavLink)`
-    background: #227C9D;
-    border-radius: 3em;
+    background: ${({ isActive }) => isActive ? "#17C3B2" : "#227C9D"};
+    border-radius: 1em;
     color: #EBEBEB;
     margin: .5em;
     padding: .75em;
     text-decoration: none;
     width: 50px;
 `
+
+let activeStyle = {
+    background: "17C3B2",
+    textDecoraton: "none"
+}
 
 function NavBar() {
     return(

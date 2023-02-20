@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const blankForm = {
     id: "",
@@ -10,7 +11,7 @@ const blankForm = {
 
 function AddStudent({ onSubmit }) {
     const [ formData, setFormData ] = useState(blankForm);
-
+    const history = useHistory()
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -21,7 +22,8 @@ function AddStudent({ onSubmit }) {
     function handleSubmit(e) {
         e.preventDefault();
         onSubmit(formData);
-        setFormData(blankForm);
+        // setFormData(blankForm);
+        history.push("/students");
     }
 
     return (

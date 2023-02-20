@@ -5,6 +5,7 @@ import Home from './Home';
 import Calendar from './Calendar';
 import Students from './Students';
 import AddStudent from './AddStudent';
+import StudentList from './StudentList';
 import Settings from './Settings';
 import Footer from './Footer';
 
@@ -29,7 +30,9 @@ function App() {
           <Calendar />
         </Route>
         <Route exact path="/students">
-          <Students />
+          <Students>
+            <StudentList studentList={studentList} />
+          </Students>
         </Route>
         <Route path="/students/new">
           <AddStudent onSubmit={onSubmit}/>

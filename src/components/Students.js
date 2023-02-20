@@ -1,8 +1,11 @@
 import React from "react";
 
-function Students() {
+function Students({ children }) {
     return (
-        <h2>Students</h2>
+        <div>
+            <h2>Students</h2>
+            {children}
+        </div>
     );
 }
 

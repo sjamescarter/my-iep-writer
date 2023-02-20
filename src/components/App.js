@@ -24,7 +24,9 @@ function App() {
       <Header></Header>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home>
+            <StudentList studentList={studentList} />
+          </Home>
         </Route>
         <Route path="/calendar">
           <Calendar />

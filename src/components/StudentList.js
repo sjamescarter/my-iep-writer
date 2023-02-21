@@ -4,7 +4,7 @@ import StudentCard from "./StudentCard"
 function StudentList({ studentList }) {
     console.log(studentList)
     return (
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", margin: "2em" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr)", margin: "2em" }}>
             {studentList.map((student) => {
                 return <StudentCard key={student.studentId} student={student} />
             })}

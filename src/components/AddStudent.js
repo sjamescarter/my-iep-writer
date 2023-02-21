@@ -1,17 +1,43 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 
-const blankForm = {
-    id: "",
-    firstName: "",
-    lastName: "",
-    birthdate: "",
-    iepDate: "",
-}
+const StyledForm = styled.form`
+    background: #FFCB77;
+    border-radius: 1.5em;
+    margin: 1em;
+    padding: 2em;
+    width: 225px;
+`
+
+const StyledInput = styled.input`
+    display: block;
+    margin: .5em 0 1.5em;
+    width: 200px;
+`
+
+const StyledSubmit = styled.input`
+    background: #FEF9EF;
+    border: none;
+    border-radius: 1em;
+    padding: 1em;
+
+    &:hover {
+        cursor: pointer;
+    }
+`
 
 function AddStudent({ onSubmit }) {
-    const [ formData, setFormData ] = useState(blankForm);
+    const [ formData, setFormData ] = useState({
+        id: "",
+        firstName: "",
+        lastName: "",
+        birthdate: "",
+        iepDate: "",
+    });
+
     const history = useHistory()
+
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -22,59 +48,53 @@ function AddStudent({ onSubmit }) {
     function handleSubmit(e) {
         e.preventDefault();
         onSubmit(formData);
-        // setFormData(blankForm);
         history.push("/students");
     }
 
     return (
         <div>
             <h2>Add Student</h2>
-            <form onSubmit={handleSubmit}>
+            <StyledForm onSubmit={handleSubmit}>
                 <label htmlFor="id">Student ID: </label>
-                <input 
+                <StyledInput 
                     type="number" 
                     name="id" 
                     value={formData.id}
                     onChange={handleChange}
                 />
-                <br></br>
                 <label htmlFor="firstName">First Name: </label>
-                <input 
+                <StyledInput 
                     type="text" 
                     name="firstName" 
                     value={formData.firstName}
                     onChange={handleChange}
                 />
-                <br></br>
                 <label htmlFor="lastName">Last Name: </label>
-                <input 
+                <StyledInput 
                     type="text" 
                     name="lastName" 
                     value={formData.lastName}
                     onChange={handleChange}
                 />
-                <br></br>
                 <label htmlFor="birthdate">Birthdate: </label>
-                <input 
+                <StyledInput 
                     type="date" 
                     name="birthdate" 
                     value={formData.birthdate}
                     onChange={handleChange}
                 />
-                <br></br>
                 <label htmlFor="iepDate">IEP Deadline: </label>
-                <input 
+                <StyledInput 
                     type="date" 
                     name="iepDate" 
                     value={formData.iepDate}
                     onChange={handleChange}
                 />
-                <br></br>
-                <input 
+                <StyledSubmit
                     type="submit" 
                     value="Add Student" 
                 />
-            </form>
+            </StyledForm>
         </div>
     );
 }

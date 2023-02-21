@@ -7,7 +7,6 @@ const CardDiv = styled.div`
     border-radius: 1em;
     margin: .5em;
     padding: 1em;
-    width: 200px;
 `
 
 function StudentCard({ student }) {

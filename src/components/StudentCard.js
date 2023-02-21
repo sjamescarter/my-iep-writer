@@ -1,12 +1,22 @@
 import React from "react";
+import styled from "styled-components";
+
+const CardDiv = styled.div`
+    background: #FFCB77;
+    border: none;
+    border-radius: 1em;
+    margin: .5em;
+    padding: 1em;
+    width: 200px;
+`
 
 function StudentCard({ student }) {
     return (
-        <div style={{ border: "solid", margin: ".5em", padding: ".5em"}}>
+        <CardDiv>
             <h3>{student.firstName} {student.lastName}</h3>
             <p>Birthdate: {student.birthdate} 🎂</p>
             <p>IEP Meeting: {student.iepDate}</p>
-        </div>
+        </CardDiv>
     );
 }
 

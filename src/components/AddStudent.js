@@ -21,6 +21,7 @@ const StyledSubmit = styled.input`
     border: none;
     border-radius: 1em;
     padding: 1em;
+    margin: 2.5em 0 .25em;
 
     &:hover {
         cursor: pointer;
@@ -34,14 +35,16 @@ function AddStudent({ onSubmit }) {
         lastName: "",
         birthdate: "",
         iepDate: "",
+        threeYearRe: false
     });
 
     const history = useHistory()
 
     function handleChange(e) {
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value; 
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: value
         });
     }
 
@@ -58,7 +61,7 @@ function AddStudent({ onSubmit }) {
                 <label htmlFor="id">Student ID: </label>
                 <StyledInput 
                     type="number" 
-                    name="id" 
+                    name="studentId" 
                     value={formData.studentId}
                     onChange={handleChange}
                 />
@@ -89,6 +92,13 @@ function AddStudent({ onSubmit }) {
                     name="iepDate" 
                     value={formData.iepDate}
                     onChange={handleChange}
+                />
+                <label htmlFor="threeYearRe">Three-Year Reevaluation? </label>
+                <input 
+                    type="checkbox" 
+                    name="threeYearRe" 
+                    checked={formData.threeYearRe} 
+                    onChange={handleChange} 
                 />
                 <StyledSubmit
                     type="submit" 

@@ -6,7 +6,7 @@ function StudentList({ studentList }) {
     return (
         <div>
             {studentList.map((student) => {
-                return <StudentCard key={student.id} student={student} />
+                return <StudentCard key={student.studentId} student={student} />
             })}
         </div>
     );

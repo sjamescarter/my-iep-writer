@@ -4,6 +4,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import Calendar from './Calendar';
 import Students from './Students';
+import EditStudent from './EditStudent';
 import AddStudent from './AddStudent';
 import StudentList from './StudentList';
 import Settings from './Settings';
@@ -44,7 +45,7 @@ function App() {
         <Route path="/calendar">
           <Calendar />
         </Route>
-        <Route exact path="/students">
+        <Route path="/students">
           <Students>
             <StudentList studentList={studentList} />
           </Students>

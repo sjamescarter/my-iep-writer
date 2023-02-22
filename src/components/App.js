@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Dashboard from './Dashboard';
@@ -9,9 +9,16 @@ import StudentList from './StudentList';
 import Settings from './Settings';
 import Footer from './Footer';
 
+const API = "http://localhost:3000/students"
 
 function App() {
   const [ studentList, setStudentList ] = useState([]);
+
+  useEffect(() => {
+    fetch(API)
+    .then(r => r.json())
+    .then(data => setStudentList(data))
+  })
 
   function onSubmit(newStudent) {
     setStudentList([...studentList, newStudent]);

@@ -1,18 +1,19 @@
 import React from "react";
 import { Route, useRouteMatch } from "react-router-dom";
+import StudentList from "./StudentList";
 import EditStudent from "./EditStudent";
 
-function Students({ children }) {
+function Students({ studentList }) {
     const match = useRouteMatch()
 
     return (
         <div>
             <h2>Students</h2>
             <Route exact path={match.url}>
-                {children}
+                <StudentList studentList={studentList} />
             </Route>
             <Route exact path={`${match.url}/:ID`}>
-                <EditStudent  />
+                <EditStudent studentList={studentList} />
             </Route>
         </div>
     );

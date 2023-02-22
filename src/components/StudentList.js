@@ -1,11 +1,10 @@
 import React from "react";
 import StudentCard, { CardDiv } from "./StudentCard"
-import { useRouteMatch, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function StudentList({ studentList }) {
     const history = useHistory();
-    const SLmatch = useRouteMatch();
-    console.log(`SLMatch: ${SLmatch.url}`)
+    
     return (
         <div 
             style={{ 

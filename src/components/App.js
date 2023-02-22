@@ -46,9 +46,7 @@ function App() {
           <Calendar />
         </Route>
         <Route path="/students">
-          <Students>
-            <StudentList studentList={studentList} />
-          </Students>
+          <Students studentList={studentList} />
         </Route>
         <Route path="/students/new">
           <AddStudent onSubmit={onSubmit}/>

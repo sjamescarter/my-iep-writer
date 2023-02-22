@@ -18,7 +18,7 @@ function App() {
     fetch(API)
     .then(r => r.json())
     .then(data => setStudentList(data))
-  })
+  }, [])
 
   function onSubmit(newStudent) {
     fetch(API, {

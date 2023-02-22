@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
-import Home from './Home';
+import Dashboard from './Dashboard';
 import Calendar from './Calendar';
 import Students from './Students';
 import AddStudent from './AddStudent';
@@ -17,16 +17,14 @@ function App() {
     setStudentList([...studentList, newStudent]);
   }
 
-  console.log(studentList);
-
   return (
     <div>
       <Header></Header>
       <Switch>
-        <Route exact path="/">
-          <Home>
+        <Route path="/dashboard">
+          <Dashboard>
             <StudentList studentList={studentList} />
-          </Home>
+          </Dashboard>
         </Route>
         <Route path="/calendar">
           <Calendar />

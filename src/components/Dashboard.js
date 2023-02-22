@@ -1,12 +1,12 @@
 import React from "react";
 
-function Home({ children }) {
+function Dashboard({ children }) {
     return (
         <div>
-            <h2>Home</h2>
+            <h2>Dashboard</h2>
             {children}
         </div>
     );
 }
 
-export default Home;
+export default Dashboard;

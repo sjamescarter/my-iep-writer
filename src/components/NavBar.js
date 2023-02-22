@@ -19,7 +19,7 @@ const activeStyle = {
 function NavBar() {
     return(
         <div>
-            <StyledNavLink to="/" exact activeStyle={activeStyle}>Home</StyledNavLink>
+            <StyledNavLink to="/" exact activeStyle={activeStyle}>Dashboard</StyledNavLink>
             <StyledNavLink to="/calendar" activeStyle={activeStyle}>Calendar</StyledNavLink>
             <StyledNavLink to="/students" exact activeStyle={activeStyle}>Students</StyledNavLink>
             <StyledNavLink to="/students/new"activeStyle={activeStyle}>Add Student</StyledNavLink>

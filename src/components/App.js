@@ -21,7 +21,7 @@ function App() {
     <div>
       <Header></Header>
       <Switch>
-        <Route path="/dashboard">
+        <Route exact path="/">
           <Dashboard>
             <StudentList studentList={studentList} />
           </Dashboard>

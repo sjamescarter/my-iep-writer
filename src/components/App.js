@@ -21,7 +21,15 @@ function App() {
   })
 
   function onSubmit(newStudent) {
-    setStudentList([...studentList, newStudent]);
+    fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newStudent)
+    })
+    .then(r => r.json())
+    .then(student => setStudentList([...studentList, student]));
   }
 
   return (

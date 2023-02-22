@@ -19,4 +19,6 @@ function StudentCard({ student }) {
     );
 }
 
+export { CardDiv };
+
 export default StudentCard;

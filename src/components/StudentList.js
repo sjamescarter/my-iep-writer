@@ -1,13 +1,19 @@
 import React from "react";
-import StudentCard from "./StudentCard"
+import StudentCard, { CardDiv } from "./StudentCard"
+import { useHistory } from "react-router-dom";
 
 function StudentList({ studentList }) {
-    console.log(studentList)
+    const history = useHistory()
+    
     return (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr)", margin: "2em" }}>
             {studentList.map((student) => {
                 return <StudentCard key={student.studentId} student={student} />
             })}
+            <CardDiv style={{ background: "#FDD899", textAlign: "center" }} onClick={() => history.push("/students/new")}>
+                <h3>Add New Student</h3>
+                <button>+</button>
+            </CardDiv>
         </div>
     );
 }

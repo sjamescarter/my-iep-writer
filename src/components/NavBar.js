@@ -6,10 +6,10 @@ const StyledNavLink = styled(NavLink)`
     background: #227C9D;
     border-radius: 1em;
     color: #FEF9EF;
-    margin: .5em;
+    margin: 0 1em 0 0;
     padding: .75em;
     text-decoration: none;
-    width: 50px;
+
 `
 
 const activeStyle = {

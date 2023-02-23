@@ -46,10 +46,22 @@ function App() {
           <Calendar />
         </Route>
         <Route path="/students">
-          <Students studentList={studentList} />
+          <Students studentList={studentList} api={API} />
         </Route>
         <Route path="/students/new">
-          <AddStudent onSubmit={onSubmit}/>
+          <AddStudent 
+            onSubmit={onSubmit} 
+            initState={
+              {
+              studentId: "",
+              firstName: "",
+              lastName: "",
+              birthdate: "",
+              iepDate: "",
+              threeYearRe: false
+              }
+            }
+        />
         </Route>
         <Route path="/settings">
           <Settings />

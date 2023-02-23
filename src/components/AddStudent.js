@@ -28,15 +28,8 @@ const StyledSubmit = styled.input`
     }
 `
 
-function AddStudent({ onSubmit }) {
-    const [ formData, setFormData ] = useState({
-        studentId: "",
-        firstName: "",
-        lastName: "",
-        birthdate: "",
-        iepDate: "",
-        threeYearRe: false
-    });
+function AddStudent({ onSubmit, initState }) {
+    const [ formData, setFormData ] = useState(initState);
 
     const history = useHistory()
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import CalculateDate from "./CalculateDate";
 
 const CardDiv = styled.div`
     background: #FFCB77;
@@ -22,16 +23,18 @@ const InnerDiv = styled.div`
     padding: .25em 1em .5em;
 `
 
-
 function StudentCard({ student }) {
     const history = useHistory();
+    const birthdate = new Date(student.birthdate);
+    const iepDate = new Date(student.iepDate);
 
     return (
         <CardDiv onClick={() => history.push(`/students/${student.id}`)}>
             <Heading>{student.firstName} {student.lastName}</Heading>
             <InnerDiv>
-                <p>Birthdate: {student.birthdate} 🎂</p>
-                <p>IEP Meeting: {student.iepDate}</p>
+                <p>Birthdate: {birthdate.toDateString()} 🎂</p>
+                <p>IEP Meeting: {iepDate.toDateString()}</p>
+                <CalculateDate dateTitle={"Open Domain"} iepDate={student.iepDate} days={60} holidays={0} />
             </InnerDiv>
         </CardDiv>
     );

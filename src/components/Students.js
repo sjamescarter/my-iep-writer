@@ -3,7 +3,7 @@ import { Route, useRouteMatch } from "react-router-dom";
 import StudentList from "./StudentList";
 import Student from "./Student";
 
-function Students({ studentList }) {
+function Students({ studentList, onDelete }) {
     const match = useRouteMatch()
 
     return (
@@ -13,7 +13,7 @@ function Students({ studentList }) {
                 <StudentList studentList={studentList} />
             </Route>
             <Route exact path={`${match.url}/:ID`}>
-                <Student studentList={studentList} />
+                <Student studentList={studentList} onDelete={onDelete} />
             </Route>
         </div>
     );

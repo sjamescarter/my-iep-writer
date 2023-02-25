@@ -30,7 +30,7 @@ const StyledSubmit = styled.input`
 
 function AddStudent({ onSubmit }) {
     const [ formData, setFormData ] = useState({
-        studentId: "",
+        studentNumber: "",
         firstName: "",
         lastName: "",
         birthdate: "",
@@ -58,10 +58,10 @@ function AddStudent({ onSubmit }) {
         <div>
             <h2>Add Student</h2>
             <StyledForm onSubmit={handleSubmit}>
-                <label htmlFor="id">Student ID: </label>
+                <label htmlFor="studentNumber">Student ID: </label>
                 <StyledInput 
                     type="number" 
-                    name="studentId" 
+                    name="studentNumber" 
                     value={formData.studentId}
                     onChange={handleChange}
                 />

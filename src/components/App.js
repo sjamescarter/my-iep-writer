@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Dashboard from './Dashboard';
 import Calendar from './Calendar';
@@ -14,7 +14,8 @@ const API = "http://localhost:3000/students"
 
 function App() {
   const [ studentList, setStudentList ] = useState([]);
-  const [ dueDates, setDueDates ] = useState([])
+  const [ dueDates, setDueDates ] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     fetch(API)
@@ -40,6 +41,19 @@ function App() {
     .then(r => r.json())
     .then(student => setStudentList([...studentList, student]));
   }
+
+  function onDelete(id) {
+    history.push("/students");
+    
+    fetch(`${API}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(setStudentList(studentList.filter(student => student.id !== id)))
+  };
+
 console.log(dueDates)
   return (
     <div>
@@ -55,7 +69,7 @@ console.log(dueDates)
           <AddStudent onSubmit={onSubmit} />
         </Route>
         <Route path="/students">
-          <Students studentList={studentList} api={API} />
+          <Students studentList={studentList} api={API} onDelete={onDelete} />
         </Route>
         <Route path="/settings">
           <Settings />

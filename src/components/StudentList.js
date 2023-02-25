@@ -14,7 +14,7 @@ function StudentList({ studentList }) {
             }}
         >
             {studentList.map((student) => {
-                return <StudentCard key={student.studentId} student={student} />
+                return <StudentCard key={student.id} student={student} />
             })}
             <CardDiv 
                 style={{ background: "#FDD899", textAlign: "center" }} 

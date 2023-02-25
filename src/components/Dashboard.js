@@ -8,12 +8,14 @@ function Dashboard({ studentList }) {
             <h2>Dashboard</h2>
             {studentList.map(student => {
                 return (student.dates.map(date => {
-                    return (
+                    if(date.completed === false) {
+                        return (
                         <li key={student.studentNumber + date.days}>
                             {student.firstName} {student.lastName}'s {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />}
                         </li>
-                    )
-                }))
+                        )
+                    }}
+                ))
             })}
             <StudentList studentList={studentList} />
         </div>

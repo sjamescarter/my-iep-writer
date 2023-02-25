@@ -31,12 +31,14 @@ function Student({ studentList, onDelete }) {
             <h3>{student.firstName} {student.lastName}</h3>
             <ul>
                 {student.dates.map(date => {
-                    return (
-                        <StyledLi key={student.studentNumber + date.days}>
-                            {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />} 
-                            <StyledButton>Complete</StyledButton>
-                        </StyledLi>
-                    )
+                    if(date.completed === false){
+                        return (
+                            <StyledLi key={student.studentNumber + date.days}>
+                                {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />} 
+                                <StyledButton>Complete</StyledButton>
+                            </StyledLi>
+                        )
+                    }
                 })}
                 <StyledLi>IEP Meeting: {student.iepDate}</StyledLi>
             </ul>

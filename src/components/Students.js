@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, useRouteMatch } from "react-router-dom";
 import StudentList from "./StudentList";
-import EditStudent from "./EditStudent";
+import Student from "./Student";
 
 function Students({ studentList }) {
     const match = useRouteMatch()
@@ -13,7 +13,7 @@ function Students({ studentList }) {
                 <StudentList studentList={studentList} />
             </Route>
             <Route exact path={`${match.url}/:ID`}>
-                <EditStudent studentList={studentList} />
+                <Student studentList={studentList} />
             </Route>
         </div>
     );

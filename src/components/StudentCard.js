@@ -34,7 +34,6 @@ function StudentCard({ student }) {
             <InnerDiv>
                 <p>Birthdate: {birthdate.toDateString()} 🎂</p>
                 <p>IEP Meeting: {iepDate.toDateString()}</p>
-                <CalculateDate dateTitle={"Open Domain"} iepDate={student.iepDate} days={60} holidays={0} />
             </InnerDiv>
         </CardDiv>
     );

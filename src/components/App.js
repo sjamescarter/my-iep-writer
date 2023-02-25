@@ -4,16 +4,17 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import Calendar from './Calendar';
 import Students from './Students';
-import EditStudent from './EditStudent';
 import AddStudent from './AddStudent';
 import StudentList from './StudentList';
 import Settings from './Settings';
 import Footer from './Footer';
+import CalculateDate from './CalculateDate';
 
 const API = "http://localhost:3000/students"
 
 function App() {
   const [ studentList, setStudentList ] = useState([]);
+  const [ dueDates, setDueDates ] = useState([])
 
   useEffect(() => {
     fetch(API)
@@ -22,6 +23,13 @@ function App() {
   }, [])
 
   function onSubmit(newStudent) {
+    const iepDate = newStudent.iepDate
+    const name = newStudent.firstName
+    const domain = <CalculateDate dateTitle={"Domain Meeting"} iepDate={iepDate} days={60} name={name} />
+    const collectData = <CalculateDate dateTitle={"Collect Data"} iepDate={iepDate} days={15} name={name} />
+    const parentReport = <CalculateDate dateTitle={"Parent Report"} iepDate={iepDate} days={10} name={name} />
+    setDueDates([ ...dueDates, domain, collectData, parentReport ]);
+
     fetch(API, {
       method: "POST",
       headers: {
@@ -32,33 +40,19 @@ function App() {
     .then(r => r.json())
     .then(student => setStudentList([...studentList, student]));
   }
-
+console.log(dueDates)
   return (
     <div>
       <Header></Header>
       <Switch>
         <Route exact path="/">
-          <Dashboard>
-            <StudentList studentList={studentList} />
-          </Dashboard>
+          <Dashboard studentList={studentList} dueDates={dueDates} />
         </Route>
         <Route path="/calendar">
           <Calendar />
         </Route>
         <Route exact path="/students/new">
-          <AddStudent 
-            onSubmit={onSubmit} 
-            initState={
-              {
-              studentId: "",
-              firstName: "",
-              lastName: "",
-              birthdate: "",
-              iepDate: "",
-              threeYearRe: false
-              }
-            }
-        />
+          <AddStudent onSubmit={onSubmit} />
         </Route>
         <Route path="/students">
           <Students studentList={studentList} api={API} />

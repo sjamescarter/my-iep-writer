@@ -1,6 +1,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import CalculateDate from "./CalculateDate";
+import styled from "styled-components";
+
+const StyledLi = styled.li`
+    display: block;
+    list-style-type: none;
+    padding: .25em;
+`
+
+const StyledButton = styled.button`
+    background: #FEF9EF;
+    border: none;
+    border-radius: 1em;
+    padding: .5em;
+    margin: 0 1em;
+
+    &:hover {
+        cursor: pointer;
+        background: #17C3B2;
+    }
+`
 
 function Student({ studentList, onDelete }) {
     const params = useParams();
@@ -9,15 +29,17 @@ function Student({ studentList, onDelete }) {
     return (
         <div>
             <h3>{student.firstName} {student.lastName}</h3>
-            <p>IEP Meeting: {student.iepDate}</p>
-            {student.dates.map(date => {
+            <ul>
+                {student.dates.map(date => {
                     return (
-                        <li key={student.studentNumber + date.days}>
+                        <StyledLi key={student.studentNumber + date.days}>
                             {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />} 
-                            <button>Complete</button>
-                        </li>
+                            <StyledButton>Complete</StyledButton>
+                        </StyledLi>
                     )
-            })}
+                })}
+                <StyledLi>IEP Meeting: {student.iepDate}</StyledLi>
+            </ul>
             <br></br>
             <button>Edit</button>
             <button onClick={() => onDelete(student.id)}>Delete</button>

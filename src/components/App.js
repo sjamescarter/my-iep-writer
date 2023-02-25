@@ -24,13 +24,6 @@ function App() {
   }, [])
 
   function onSubmit(newStudent) {
-    const iepDate = newStudent.iepDate
-    const name = newStudent.firstName
-    const domain = <CalculateDate dateTitle={"Domain Meeting"} iepDate={iepDate} days={60} name={name} />
-    const collectData = <CalculateDate dateTitle={"Collect Data"} iepDate={iepDate} days={15} name={name} />
-    const parentReport = <CalculateDate dateTitle={"Parent Report"} iepDate={iepDate} days={10} name={name} />
-    setDueDates([ ...dueDates, domain, collectData, parentReport ]);
-
     fetch(API, {
       method: "POST",
       headers: {
@@ -39,12 +32,14 @@ function App() {
       body: JSON.stringify(newStudent)
     })
     .then(r => r.json())
-    .then(student => setStudentList([...studentList, student]));
+    .then(student => setStudentList([...studentList, student]))
   }
+
+  console.log(dueDates)
 
   function onDelete(id) {
     history.push("/students");
-    
+
     fetch(`${API}/${id}`, {
       method: "DELETE",
       headers: {
@@ -54,13 +49,12 @@ function App() {
     .then(setStudentList(studentList.filter(student => student.id !== id)))
   };
 
-console.log(dueDates)
   return (
     <div>
       <Header></Header>
       <Switch>
         <Route exact path="/">
-          <Dashboard studentList={studentList} dueDates={dueDates} />
+          <Dashboard studentList={studentList} />
         </Route>
         <Route path="/calendar">
           <Calendar />

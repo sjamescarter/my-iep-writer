@@ -35,6 +35,23 @@ function AddStudent({ onSubmit }) {
         lastName: "",
         birthdate: "",
         iepDate: "",
+        dates: [
+            {
+                title: "Domain Meeting",
+                days: 60,
+                completed: false,
+            },
+            {
+                title: "Collect Data",
+                days: 15,
+                completed: false,
+            },
+            {
+                title: "Send Home Parent Report",
+                days: 10,
+                completed: false
+            }
+        ],
         threeYearRe: false
     });
 

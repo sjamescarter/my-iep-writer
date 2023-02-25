@@ -9,6 +9,16 @@ function Student({ studentList, onDelete }) {
     return (
         <div>
             <h3>{student.firstName} {student.lastName}</h3>
+            <p>IEP Meeting: {student.iepDate}</p>
+            {student.dates.map(date => {
+                    return (
+                        <li key={student.studentNumber + date.days}>
+                            {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />} 
+                            <button>Complete</button>
+                        </li>
+                    )
+            })}
+            <br></br>
             <button>Edit</button>
             <button onClick={() => onDelete(student.id)}>Delete</button>
         </div>

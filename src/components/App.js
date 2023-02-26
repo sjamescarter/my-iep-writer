@@ -5,10 +5,8 @@ import Dashboard from './Dashboard';
 import Calendar from './Calendar';
 import Students from './Students';
 import AddStudent from './AddStudent';
-import StudentList from './StudentList';
 import Settings from './Settings';
 import Footer from './Footer';
-import CalculateDate from './CalculateDate';
 
 const API = "http://localhost:3000/students"
 

@@ -35,8 +35,8 @@ function Students({ studentList, onDelete }) {
     return (
         <div>
             <h2>Students</h2>
-            <Sort sortBy={sortBy} setSortBy={setSortBy}/>
             <Route exact path={match.url}>
+                <Sort sortBy={sortBy} setSortBy={setSortBy}/>
                 <StudentList studentList={sortedStudentList} />
             </Route>
             <Route exact path={`${match.url}/:ID`}>

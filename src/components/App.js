@@ -34,6 +34,7 @@ function App() {
   }
 
   console.log(dueDates)
+  console.log()
 
   function onDelete(id) {
     history.push("/students");

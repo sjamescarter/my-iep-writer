@@ -7,8 +7,15 @@ import Students from './Students';
 import AddStudent from './AddStudent';
 import Settings from './Settings';
 import Footer from './Footer';
+import styled from 'styled-components';
 
 const API = "http://localhost:3000/students"
+
+const Container = styled.div`
+  margin: auto;
+  width: 90%;
+  max-width: 1440px;
+`
 
 function App() {
   const [ studentList, setStudentList ] = useState([]);
@@ -49,25 +56,27 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ background: "#FEF9EF" }}>
       <Header></Header>
-      <Switch>
-        <Route exact path="/">
-          <Dashboard studentList={studentList} />
-        </Route>
-        <Route path="/calendar">
-          <Calendar />
-        </Route>
-        <Route exact path="/students/new">
-          <AddStudent onSubmit={onSubmit} />
-        </Route>
-        <Route path="/students">
-          <Students studentList={studentList} api={API} onDelete={onDelete} />
-        </Route>
-        <Route path="/settings">
-          <Settings />
-        </Route>
-      </Switch>
+      <Container>
+        <Switch>
+          <Route exact path="/">
+            <Dashboard studentList={studentList} />
+          </Route>
+          <Route path="/calendar">
+            <Calendar />
+          </Route>
+          <Route exact path="/students/new">
+            <AddStudent onSubmit={onSubmit} />
+          </Route>
+          <Route path="/students">
+            <Students studentList={studentList} api={API} onDelete={onDelete} />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+        </Switch>
+      </Container>
       <Footer></Footer>
     </div>
   );

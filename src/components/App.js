@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 import Calendar from './Calendar';
 import Students from './Students';
 import AddStudent from './AddStudent';
-import Settings from './Settings';
+// import Settings from './Settings';
 import Footer from './Footer';
 import styled from 'styled-components';
 
@@ -40,9 +40,6 @@ function App() {
     .then(student => setStudentList([...studentList, student]))
   }
 
-  console.log(dueDates)
-  console.log()
-
   function onDelete(id) {
     history.push("/students");
 
@@ -58,7 +55,7 @@ function App() {
   return (
     <div style={{ background: "#FEF9EF" }}>
       <Header></Header>
-      <Container>
+      <Container style={{ minHeight: window.innerHeight - 300}}>
         <Switch>
           <Route exact path="/">
             <Dashboard studentList={studentList} />

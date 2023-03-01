@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 const Main = styled.div`
     background: #227C9D;
     display: block;
-    height: 8em;
+    height: 128px;
     margin: 0;
     padding: 0 1em 1em;
 `

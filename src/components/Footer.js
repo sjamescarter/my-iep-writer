@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Div = styled.div`
     background-color: #0F3543;
+    height: 112px;
     padding: 1em;
     text-align: center;
 `

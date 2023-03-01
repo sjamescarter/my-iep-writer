@@ -14,7 +14,6 @@ const StyledNavLink = styled(NavLink)`
         background: #2892B8;
     }
 `
-
 const activeStyle = {
     background: "#2892B8"
 }

@@ -59,6 +59,7 @@ function AddStudent({ onSubmit }) {
 
     function handleChange(e) {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value; 
+        
         setFormData({
             ...formData,
             [e.target.name]: value

@@ -20,7 +20,11 @@ function Students({ studentList, onDelete }) {
         return 0;
     });
 
-    const iepSort = [...studentList].sort((a, b) => a.iepDate - b.iepDate);
+    const iepSort = [...studentList].sort((a, b) => {
+        const dateA = new Date(a.iepDate);
+        const dateB = new Date(b.iepDate);
+        return dateA - dateB
+    });
 
     const sortedStudentList = sortBy === 'none' 
         ? studentList

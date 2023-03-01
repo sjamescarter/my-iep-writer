@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Sort() {
-    const [sortBy, setSortBy] = useState('none')
-
-    function handleSort(e) {
-        setSortBy(e.target.value)
-    }
-
-    console.log(sortBy)
+function Sort({ sortBy, setSortBy }) {
     return (
         <>
             <label htmlFor="sort">Sort by: </label>
-            <select name="sort" id="sort" value={sortBy} onChange={handleSort}>
+            <select name="sort" id="sort" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                 <option value="none">Select</option>
                 <option value="name">Name</option>
                 <option value="iep">IEP Date</option>

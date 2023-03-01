@@ -16,6 +16,7 @@ function StudentList({ studentList }) {
             {studentList.map((student) => {
                 return <StudentCard key={student.id} student={student} />
             })}
+            
             <CardDiv 
                 style={{ background: "#FDD899", textAlign: "center" }} 
                 onClick={() => history.push("/students/new")}

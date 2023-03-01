@@ -10,6 +10,9 @@ const StyledNavLink = styled(NavLink)`
     padding: .75em;
     text-decoration: none;
 
+    &:hover {
+        background: #2892B8;
+    }
 `
 
 const activeStyle = {

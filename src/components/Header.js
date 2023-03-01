@@ -7,7 +7,7 @@ const Main = styled.div`
     display: block;
     height: 8em;
     margin: 0;
-    padding: 0 1em 2em;
+    padding: 0 1em 1em;
 `
 const Title = styled.h1`
     color: #FEF9EF;    

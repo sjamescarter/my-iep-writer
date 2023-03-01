@@ -53,7 +53,7 @@ function App() {
   };
 
   return (
-    <div style={{ background: "#FEF9EF" }}>
+    <div>
       <Header></Header>
       <Container style={{ minHeight: window.innerHeight - 300}}>
         <Switch>

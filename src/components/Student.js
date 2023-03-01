@@ -11,14 +11,18 @@ const StyledLi = styled.li`
 
 const StyledButton = styled.button`
     background: #FEF9EF;
-    border: none;
-    border-radius: 1em;
+    border: solid;
+    border-color: #17C3B2;
+    border-radius: 2em;
     padding: .5em;
     margin: 0 1em;
+    color: #17C3B2;
 
     &:hover {
         cursor: pointer;
         background: #17C3B2;
+        border-color: #17C3B2;
+        color: #FEF9EF;
     }
 `
 

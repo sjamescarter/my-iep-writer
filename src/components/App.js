@@ -72,9 +72,9 @@ function App() {
           <Route path="/students">
             <Students studentList={studentList} api={API} onDelete={onDelete} />
           </Route>
-          <Route path="/settings">
+          {/* <Route path="/settings">
             <Settings />
-          </Route>
+          </Route> */}
         </Switch>
       </Container>
       <Footer></Footer>

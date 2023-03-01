@@ -16,6 +16,7 @@ const Container = styled.div`
   width: 90%;
   max-width: 1440px;
 `
+export { Container }
 
 function App() {
   const [ studentList, setStudentList ] = useState([]);

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavBar from "./NavBar";
+import { Container } from "./App";
 
 const Main = styled.div`
     background: #227C9D;
@@ -14,11 +15,14 @@ const Title = styled.h1`
     margin: 0;
     padding: 1em 0;
 `
+
 function Header() {
     return (
         <Main>
-            <Title>My IEP Writer</Title>
-            <NavBar />
+            <Container>
+                <Title>My IEP Writer</Title>
+                <NavBar />
+            </Container>
         </Main>
     );
 }

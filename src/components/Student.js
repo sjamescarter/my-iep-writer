@@ -30,6 +30,9 @@ function Student({ studentList, onDelete }) {
     const params = useParams();
     const student = studentList.find(student => student.id === parseInt(params.ID))
 
+    function handleComplete() {
+        
+    }
     return (
         <div>
             <h3>{student.firstName} {student.lastName}</h3>
@@ -39,7 +42,7 @@ function Student({ studentList, onDelete }) {
                         return (
                             <StyledLi key={student.studentNumber + date.days}>
                                 {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />} 
-                                <StyledButton>Complete</StyledButton>
+                                <StyledButton onClick={handleComplete}>Complete</StyledButton>
                             </StyledLi>
                         )
                     }

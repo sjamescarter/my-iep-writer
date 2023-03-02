@@ -30,13 +30,10 @@ function Student({ studentList, onDelete }) {
     const params = useParams();
     const student = studentList.find(student => student.id === parseInt(params.ID))
 
-    function handleComplete() {
-        
-    }
     return (
         <div>
             <h3>{student.firstName} {student.lastName}</h3>
-            <ul>
+            {/* <ul>
                 {student.dates.map(date => {
                     if(date.completed === false){
                         return (
@@ -48,7 +45,7 @@ function Student({ studentList, onDelete }) {
                     }
                 })}
                 <StyledLi>IEP Meeting: {student.iepDate}</StyledLi>
-            </ul>
+            </ul> */}
             <br></br>
             <button>Edit</button>
             <button onClick={() => onDelete(student.id)}>Delete</button>

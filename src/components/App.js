@@ -8,6 +8,7 @@ import AddStudent from './AddStudent';
 // import Settings from './Settings';
 import Footer from './Footer';
 import styled from 'styled-components';
+import GetRequest from './GetRequest';
 
 const API = "http://localhost:3000/students"
 
@@ -24,10 +25,13 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(API)
-    .then(r => r.json())
-    .then(data => setStudentList(data))
+    <GetRequest endpoint={"/students"} setState={setStudentList} />;
+    <GetRequest endpoint={"/dates"} setState={setDueDates} />
   }, [])
+
+  // fetch(API + "/students")
+  //   .then(r => r.json())
+  //   .then(data => setStudentList(data))
 
   function onSubmit(newStudent) {
     fetch(API, {

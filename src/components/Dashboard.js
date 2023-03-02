@@ -6,7 +6,7 @@ function Dashboard({ studentList }) {
     return (
         <div>
             <h2>Dashboard</h2>
-            {studentList.map(student => {
+            {/* {studentList.map(student => {
                 return (student.dates.map(date => {
                     if(date.completed === false) {
                         return (
@@ -14,9 +14,9 @@ function Dashboard({ studentList }) {
                             {student.firstName} {student.lastName}'s {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />}
                         </li>
                         )
-                    }}
-                ))
-            })}
+                    }
+                }))
+            })} */}
             <StudentList studentList={studentList} />
         </div>
     );

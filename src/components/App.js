@@ -61,7 +61,8 @@ function App() {
 
   function onDelete(id) {
     const {studentNumber} = studentList.find(student => student.id === id);
-    console.log(studentNumber)
+    const studentDates = dueDates.filter(dates => dates.studentNumber === studentNumber);
+    studentDates.map(date => deleteRequest("/dates", date.id, setDueDates, dueDates));
     history.push("/students");
     deleteRequest("/students", id, setStudentList, studentList);
   };

@@ -9,6 +9,7 @@ import AddStudent from './AddStudent';
 import Footer from './Footer';
 import styled from 'styled-components';
 import GetRequest from './GetRequest';
+import PostRequest from './PostRequest';
 
 const API = "http://localhost:3000/students"
 
@@ -25,26 +26,30 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    <GetRequest endpoint={"/students"} setState={setStudentList} />;
-    <GetRequest endpoint={"/dates"} setState={setDueDates} />
+    <GetRequest API={API} endpoint={"/students"} setState={setStudentList} />;
+    <GetRequest API={API} endpoint={"/dates"} setState={setDueDates} />;
   }, [])
 
-  // fetch(API + "/students")
-  //   .then(r => r.json())
-  //   .then(data => setStudentList(data))
-
   function onSubmit(newStudent) {
-    fetch(API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newStudent)
-    })
-    .then(r => r.json())
-    .then(student => setStudentList([...studentList, student]))
+    console.log(newStudent);
+    <PostRequest 
+      API={API} 
+      endpoint={"/students"} 
+      newData={newStudent} 
+      setState={setStudentList}
+      currentState={studentList}
+    />;
   }
 
+  // fetch(API, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify(newStudent)
+  // })
+  // .then(r => r.json())
+  // .then(student => setStudentList([...studentList, student]))
   function onDelete(id) {
     history.push("/students");
 

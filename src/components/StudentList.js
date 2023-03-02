@@ -10,7 +10,7 @@ function StudentList({ studentList }) {
             style={{ 
                 display: "grid", 
                 gridTemplateColumns: "repeat(auto-fill, minmax(275px, 1fr)", 
-                margin: "2em" 
+                margin: "1em 0" 
             }}
         >
             {studentList.map((student) => {

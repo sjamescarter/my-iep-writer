@@ -32,7 +32,7 @@ function StudentCard({ student }) {
         <CardDiv onClick={() => history.push(`/students/${student.id}`)}>
             <Heading>{student.firstName} {student.lastName}</Heading>
             <InnerDiv>
-                <p>Birthdate: {birthdate.toDateString()} 🎂</p>
+                <small>Birthdate: {birthdate.toDateString()} 🎂</small>
                 <p>IEP Meeting: {iepDate.toDateString()}</p>
             </InnerDiv>
         </CardDiv>

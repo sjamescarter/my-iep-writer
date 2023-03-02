@@ -2,21 +2,22 @@ import React from "react";
 import CalculateDate from "./CalculateDate";
 import StudentList from "./StudentList";
 
-function Dashboard({ studentList }) {
+function Dashboard({ dueDates, studentList }) {
     return (
         <div>
             <h2>Dashboard</h2>
-            {/* {studentList.map(student => {
-                return (student.dates.map(date => {
-                    if(date.completed === false) {
-                        return (
-                        <li key={student.studentNumber + date.days}>
-                            {student.firstName} {student.lastName}'s {date.title}: {<CalculateDate iepDate={student.iepDate} days={date.days} />}
-                        </li>
-                        )
-                    }
-                }))
-            })} */}
+            {dueDates.map(date => {
+                const student = studentList.find(student => student.studentNumber === date.studentNumber);
+                const {firstName, lastName, iepDate} = student;
+
+                if(date.completed === false) {
+                    return (
+                    <li key={date.id}>
+                        {firstName} {lastName}'s {date.title}: {<CalculateDate iepDate={iepDate} days={date.days} />}
+                    </li>
+                    )
+                }
+            })}
             <StudentList studentList={studentList} />
         </div>
     );

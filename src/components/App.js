@@ -8,10 +8,8 @@ import AddStudent from './AddStudent';
 // import Settings from './Settings';
 import Footer from './Footer';
 import styled from 'styled-components';
-import GetRequest from './GetRequest';
-import PostRequest from './PostRequest';
 
-const API = "http://localhost:3000/students"
+const API = "http://localhost:3000"
 
 const Container = styled.div`
   margin: auto;
@@ -26,30 +24,29 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    <GetRequest API={API} endpoint={"/students"} setState={setStudentList} />;
-    <GetRequest API={API} endpoint={"/dates"} setState={setDueDates} />;
-  }, [])
+    fetch(API + "/students")
+    .then(r => r.json())
+    .then(data => setStudentList(data))
+  }, []);
+
+  useEffect(() => {
+    fetch(API + "/dates")
+    .then(r => r.json())
+    .then(data => setDueDates(data))
+  }, []);
 
   function onSubmit(newStudent) {
-    console.log(newStudent);
-    <PostRequest 
-      API={API} 
-      endpoint={"/students"} 
-      newData={newStudent} 
-      setState={setStudentList}
-      currentState={studentList}
-    />;
+    fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newStudent)
+    })
+    .then(r => r.json())
+    .then(student => setStudentList([...studentList, student]))
   }
 
-  // fetch(API, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   },
-  //   body: JSON.stringify(newStudent)
-  // })
-  // .then(r => r.json())
-  // .then(student => setStudentList([...studentList, student]))
   function onDelete(id) {
     history.push("/students");
 
@@ -68,7 +65,7 @@ function App() {
       <Container style={{ minHeight: window.innerHeight - 300}}>
         <Switch>
           <Route exact path="/">
-            <Dashboard studentList={studentList} />
+            <Dashboard dueDates={dueDates} studentList={studentList} />
           </Route>
           <Route path="/calendar">
             <Calendar />

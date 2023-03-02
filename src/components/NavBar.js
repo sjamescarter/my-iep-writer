@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 
 const StyledNavLink = styled(NavLink)`
     background: #227C9D;
-    border: solid; 
-    border-color: #227C9D;
     border-radius: 1em;
     color: #FEF9EF;
     margin: 0 1em 0 0;
@@ -13,14 +11,11 @@ const StyledNavLink = styled(NavLink)`
     text-decoration: none;
 
     &:hover {
-        border: solid;
-        border-color: #2892B8;
+        background: #2892B8;
     }
 `
 const activeStyle = {
     background: "#2892B8",
-    border: "solid",
-    borderColor: "#2892B8"
 }
 
 function NavBar() {

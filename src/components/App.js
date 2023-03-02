@@ -11,6 +11,33 @@ import styled from 'styled-components';
 
 const API = "http://localhost:3000"
 
+function getRequest(endpoint, setState) {
+  fetch(API + endpoint)
+  .then(r => r.json())
+  .then(data => setState(data));
+}
+
+function postRequest(endpoint, newData, setState, currentState) {
+  fetch(API + endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newData)
+  })
+  .then(r => r.json())
+  .then(student => setState([...currentState, student]))
+}
+
+function deleteRequest(endpoint, id, setState, currentState) {
+  fetch(API + endpoint + "/" + id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(setState(currentState.filter(student => student.id !== id)))
+}
 const Container = styled.div`
   margin: auto;
   width: 90%;
@@ -24,39 +51,19 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(API + "/students")
-    .then(r => r.json())
-    .then(data => setStudentList(data))
-  }, []);
-
-  useEffect(() => {
-    fetch(API + "/dates")
-    .then(r => r.json())
-    .then(data => setDueDates(data))
+    getRequest("/students", setStudentList)
+    getRequest("/dates", setDueDates)
   }, []);
 
   function onSubmit(newStudent) {
-    fetch(API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newStudent)
-    })
-    .then(r => r.json())
-    .then(student => setStudentList([...studentList, student]))
+    postRequest("/students", newStudent, setStudentList, studentList);
   }
 
   function onDelete(id) {
+    const {studentNumber} = studentList.find(student => student.id === id);
+    console.log(studentNumber)
     history.push("/students");
-
-    fetch(`${API}/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(setStudentList(studentList.filter(student => student.id !== id)))
+    deleteRequest("/students", id, setStudentList, studentList);
   };
 
   return (

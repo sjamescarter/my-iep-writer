@@ -8,7 +8,7 @@ const CardDiv = styled.div`
     border: none;
     border-radius: 1em;
     display: block;
-    margin: .5em;
+    margin: 0em;
     padding: 0 1em 1em;
     text-decoration: none;
 `
@@ -19,7 +19,7 @@ const Heading = styled.h3`
 
 const InnerDiv = styled.div`
     background: #FEF9EF;
-    border-radius 0 0 1em 1em;
+    border-radius 0 0 .5em .5em;
     padding: .25em 1em .5em;
 `
 

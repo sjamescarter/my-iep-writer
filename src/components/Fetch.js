@@ -18,14 +18,14 @@ function postRequest(endpoint, newData, setState) {
   .then(student => setState((currentState) => [...currentState, student]));
 }
 
-function deleteRequest(endpoint, id, setState, currentState) {
+function deleteRequest(endpoint, id, setState) {
   fetch(API + endpoint + "/" + id, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
     }
   })
-  .then(setState(currentState.filter(student => student.id !== id)));
+  .then(setState((currentState) => currentState.filter(student => student.id !== id)));
 }
 
 export { getRequest, postRequest, deleteRequest };

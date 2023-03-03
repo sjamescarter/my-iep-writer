@@ -9,7 +9,7 @@ function Student({ studentList, onDelete, dueDates }) {
     return (
         <div>
             <h3>{student.firstName} {student.lastName}</h3>
-            {/* <DatesList dueDates={dueDates} studentList={student} /> */}
+            <DatesList dueDates={dueDates} studentList={studentList} />
             <br></br>
             <button>Edit</button>
             <button onClick={() => onDelete(student.id)}>Delete</button>

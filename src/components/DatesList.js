@@ -1,3 +1,4 @@
+import React from "react";
 import CalculateDate from "./CalculateDate";
 import styled from "styled-components";
 
@@ -50,10 +51,10 @@ function DatesList({ dueDates, studentList }) {
                             <strong>Complete</strong>
                         </StyledButton>
                     </StyledLi>
-                )
+                );
             }
         })
-    )
+    );
 }
 
 export default DatesList;

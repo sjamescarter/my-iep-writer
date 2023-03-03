@@ -1,26 +1,20 @@
 import React from "react";
-import CalculateDate from "./CalculateDate";
+import DatesList from "./DatesList";
 import StudentList from "./StudentList";
 
 function Dashboard({ dueDates, studentList }) {
-    console.log(dueDates)
-    console.log(studentList)
     return (
         <div>
             <h2>Dashboard</h2>
-            {dueDates.map(date => {
-                const student = studentList.find(student => student.studentNumber === date.studentNumber);
-                const {firstName, lastName, iepDate} = student;
-
-                if(date.completed === false) {
-                    return (
-                    <li key={date.id}>
-                        {firstName} {lastName}'s {date.title}: {<CalculateDate iepDate={iepDate} days={date.days} />}
-                    </li>
-                    )
-                }
-            })}
-            <StudentList studentList={studentList} />
+            <div>
+                <h3>Upcoming Due Dates</h3>
+                <DatesList dueDates={dueDates.slice(0, 3)} studentList={studentList} />
+            </div>
+            <br></br>
+            <div>
+                <h3>My Students</h3>
+                <StudentList studentList={studentList} />
+            </div>
         </div>
     );
 }

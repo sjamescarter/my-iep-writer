@@ -6,7 +6,7 @@ function getRequest(endpoint, setState) {
   .then(data => setState(data));
 }
 
-function postRequest(endpoint, newData, setState, currentState) {
+function postRequest(endpoint, newData, setState) {
   fetch(API + endpoint, {
     method: "POST",
     headers: {
@@ -15,7 +15,7 @@ function postRequest(endpoint, newData, setState, currentState) {
     body: JSON.stringify(newData)
   })
   .then(r => r.json())
-  .then(student => setState([...currentState, student]));
+  .then(student => setState((currentState) => [...currentState, student]));
 }
 
 function deleteRequest(endpoint, id, setState, currentState) {

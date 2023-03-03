@@ -9,6 +9,7 @@ import AddStudent from './AddStudent';
 import Footer from './Footer';
 import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './Fetch';
+import { createAnnualDates } from './Dates';
 
 const Container = styled.div`
   margin: auto;
@@ -29,6 +30,7 @@ function App() {
 
   function onSubmit(newStudent) {
     postRequest("/students", newStudent, setStudentList, studentList);
+    createAnnualDates(newStudent.studentNumber, setDueDates);
   }
 
   function onDelete(id) {

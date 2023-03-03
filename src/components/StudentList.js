@@ -1,15 +1,6 @@
 import React from "react";
 import StudentCard, { CardDiv } from "./StudentCard"
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
-
-const Grid = styled.div`
-    display: grid; 
-    gridTemplateColumns: repeat(auto-fill, minmax(275px, 1fr);
-    columnGap: 2em;
-    rowGap: 2em;
-    margin: 2em 0;
-`
 
 function StudentList({ studentList }) {
     const history = useHistory();

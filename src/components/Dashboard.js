@@ -3,6 +3,8 @@ import CalculateDate from "./CalculateDate";
 import StudentList from "./StudentList";
 
 function Dashboard({ dueDates, studentList }) {
+    console.log(dueDates)
+    console.log(studentList)
     return (
         <div>
             <h2>Dashboard</h2>

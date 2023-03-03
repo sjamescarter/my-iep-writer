@@ -10,36 +10,6 @@ import Footer from './Footer';
 import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './Fetch';
 
-const API = "http://localhost:3000"
-
-// function getRequest(endpoint, setState) {
-//   fetch(API + endpoint)
-//   .then(r => r.json())
-//   .then(data => setState(data));
-// }
-
-// function postRequest(endpoint, newData, setState, currentState) {
-//   fetch(API + endpoint, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(newData)
-//   })
-//   .then(r => r.json())
-//   .then(student => setState([...currentState, student]))
-// }
-
-// function deleteRequest(endpoint, id, setState, currentState) {
-//   fetch(API + endpoint + "/" + id, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json"
-//     }
-//   })
-//   .then(setState(currentState.filter(student => student.id !== id)))
-// }
-
 const Container = styled.div`
   margin: auto;
   width: 90%;
@@ -84,7 +54,7 @@ function App() {
             <AddStudent onSubmit={onSubmit} />
           </Route>
           <Route path="/students">
-            <Students studentList={studentList} api={API} onDelete={onDelete} />
+            <Students studentList={studentList} onDelete={onDelete} />
           </Route>
           {/* <Route path="/settings">
             <Settings />

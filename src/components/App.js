@@ -50,13 +50,13 @@ function App() {
             <Dashboard dueDates={dueDates} studentList={studentList} />
           </Route>
           <Route path="/calendar">
-            <Calendar />
+            <Calendar dueDates={dueDates} studentList={studentList} />
           </Route>
           <Route exact path="/students/new">
             <AddStudent onSubmit={onSubmit} />
           </Route>
           <Route path="/students">
-            <Students studentList={studentList} onDelete={onDelete} />
+            <Students studentList={studentList} onDelete={onDelete} dueDates={dueDates} />
           </Route>
           {/* <Route path="/settings">
             <Settings />

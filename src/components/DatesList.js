@@ -44,9 +44,7 @@ function DatesList({ dueDates, studentList }) {
                             <small>{firstName} {lastName}</small>
                         </div>
                         <big>
-                            <strong>
-                                {<CalculateDate iepDate={iepDate} days={date.days} />}
-                            </strong>
+                            <strong>{<CalculateDate iepDate={iepDate} days={date.days} />}</strong>
                         </big>
                         <StyledButton>
                             <strong>Complete</strong>

@@ -10,6 +10,7 @@ import Footer from './Footer';
 import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './Fetch';
 import { createAnnualDates } from './Dates';
+import { calculateDate } from './CalculateDate';
 
 const Container = styled.div`
   margin: auto;
@@ -21,6 +22,13 @@ export { Container }
 function App() {
   const [ studentList, setStudentList ] = useState([]);
   const [ dueDates, setDueDates ] = useState([]);
+  
+  const orderedDueDates = [...dueDates].sort((a, b) => {
+    const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
+    const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
+    return dateA - dateB;
+  });
+  
   const history = useHistory();
 
   useEffect(() => {
@@ -47,10 +55,10 @@ function App() {
       <Container style={{ minHeight: window.innerHeight - 300}}>
         <Switch>
           <Route exact path="/">
-            <Dashboard dueDates={dueDates} studentList={studentList} />
+            <Dashboard dueDates={orderedDueDates} studentList={studentList} />
           </Route>
           <Route path="/calendar">
-            <Calendar dueDates={dueDates} studentList={studentList} />
+            <Calendar dueDates={orderedDueDates} studentList={studentList} />
           </Route>
           <Route exact path="/students/new">
             <AddStudent onSubmit={onSubmit} />

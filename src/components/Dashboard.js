@@ -7,13 +7,13 @@ import StudentList from "./StudentList";
 function Dashboard({ dueDates, studentList }) {
     const history = useHistory();
 
-    const orderedDueDates = [...dueDates].sort((a, b) => {
-        const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
-        const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
-        return dateA - dateB;
-    });
+    // const orderedDueDates = [...dueDates].sort((a, b) => {
+    //     const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
+    //     const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
+    //     return dateA - dateB;
+    // });
 
-    const upcomingDates = [...orderedDueDates].filter(dueDate => {
+    const upcomingDates = [...dueDates].filter(dueDate => {
         const {iepDate} = [...studentList].find(student => student.studentNumber === dueDate.studentNumber);
         const date = new Date(calculateDate(iepDate, dueDate.days));
         const today = new Date();

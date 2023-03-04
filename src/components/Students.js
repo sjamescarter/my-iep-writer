@@ -3,34 +3,17 @@ import { Route, useRouteMatch } from "react-router-dom";
 import StudentList from "./StudentList";
 import Student from "./Student";
 import SortBy from "./SortBy";
+import { sortABC, sortIEP } from "./Sort";
 
 function Students({ studentList, onDelete, dueDates }) {
     const [sortBy, setSortBy] = useState('none');
     const match = useRouteMatch()
 
-    const nameSort = [...studentList].sort((a, b) => {
-        const nameA = a.firstName.toUpperCase();
-        const nameB = b.firstName.toUpperCase();
-        if (nameA < nameB) {
-            return -1;
-        }
-        if (nameA > nameB) {
-            return 1;
-        }
-        return 0;
-    });
-
-    const iepSort = [...studentList].sort((a, b) => {
-        const dateA = new Date(a.iepDate);
-        const dateB = new Date(b.iepDate);
-        return dateA - dateB
-    });
-
     const sortedStudentList = sortBy === 'none' 
         ? studentList
         : sortBy === 'name'
-            ? nameSort
-            : iepSort;
+            ? sortABC(studentList)
+            : sortIEP(studentList);
 
     return (
         <div>

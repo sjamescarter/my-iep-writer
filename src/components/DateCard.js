@@ -1,5 +1,5 @@
 import React from "react";
-import CalculateDate from "./CalculateDate";
+import { calculateDate } from "./CalculateDate";
 import styled from "styled-components";
 
 const StyledLi = styled.li`
@@ -41,7 +41,7 @@ function DateCard({ date, student }) {
                 <small>{firstName} {lastName}</small>
             </div>
             <big>
-                <strong>{<CalculateDate iepDate={iepDate} days={date.days} />}</strong>
+                <strong>{calculateDate(iepDate, date.days)}</strong>
             </big>
             <StyledButton>
                 <strong>Complete</strong>

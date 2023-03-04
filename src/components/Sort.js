@@ -1,16 +1,17 @@
 import React from "react";
 
-function Sort({ sortBy, setSortBy }) {
-    return (
-        <>
-            <label htmlFor="sort">Sort by: </label>
-            <select name="sort" id="sort" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                <option value="none">Select</option>
-                <option value="name">Name</option>
-                <option value="iep">IEP Date</option>
-            </select>
-        </>
-    );
+function Sort({ list }) {
+    const nameSort = [...list].sort((a, b) => {
+        const nameA = a.firstName.toUpperCase();
+        const nameB = b.firstName.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    });
 }
 
 export default Sort;

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Route, useRouteMatch } from "react-router-dom";
 import StudentList from "./StudentList";
 import Student from "./Student";
-import Sort from "./Sort";
+import SortBy from "./SortBy";
 
-function Students({ studentList, onDelete }) {
+function Students({ studentList, onDelete, dueDates }) {
     const [sortBy, setSortBy] = useState('none');
     const match = useRouteMatch()
 
@@ -36,11 +36,11 @@ function Students({ studentList, onDelete }) {
         <div>
             <h2>Students</h2>
             <Route exact path={match.url}>
-                <Sort sortBy={sortBy} setSortBy={setSortBy}/>
+                <SortBy sortBy={sortBy} setSortBy={setSortBy}/>
                 <StudentList studentList={sortedStudentList} />
             </Route>
             <Route exact path={`${match.url}/:ID`}>
-                <Student studentList={studentList} onDelete={onDelete} />
+                <Student studentList={studentList} onDelete={onDelete} dueDates={dueDates} />
             </Route>
         </div>
     );

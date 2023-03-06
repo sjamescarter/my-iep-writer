@@ -29,8 +29,23 @@ const StyledButton = styled.button`
 
 function DateCard({ date, student }) {
     const {firstName, lastName, iepDate} = student;
-    const color = date.completed ? "#17C3B2" : calculateColor(iepDate, date.days);
-
+    const dueDate = calculateDate(iepDate, date.days);
+    const day = dueDate.getDay();
+    const dayIs = day === 0
+        ? "Sunday"
+        : day === 1 
+        ? "Monday"
+        : day === 2
+        ? "Tuesday"
+        : day === 3
+        ? "Wednesday"
+        : day === 4
+        ? "Thursday"
+        : day === 5
+        ? "Friday"
+        : "Saturday"
+    const color = date.completed ? "#17C3B2" : calculateColor(iepDate, date.days); 
+    
     return (
         <StyledLi style={{ background: color }}>
             <div>
@@ -38,9 +53,7 @@ function DateCard({ date, student }) {
                 <br></br>
                 <small>{firstName} {lastName}</small>
             </div>
-            <big>
-                <strong>{calculateDate(iepDate, date.days).toDateString()}</strong>
-            </big>
+            <strong style={{ fontSize: "1.25em" }}>{dayIs}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}</strong>
             <StyledButton style={{ color: color }}>
                 <strong>Complete</strong>
             </StyledButton>

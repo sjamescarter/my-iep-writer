@@ -5,7 +5,7 @@ import Student from "./Student";
 import SortBy from "./SortBy";
 import { sortABC, sortIEP } from "./Sort";
 
-function Students({ studentList, onDelete, dueDates }) {
+function Students({ studentList, onDelete, dueDates, setDueDates }) {
     const [sortBy, setSortBy] = useState('none');
     const match = useRouteMatch()
 
@@ -23,7 +23,7 @@ function Students({ studentList, onDelete, dueDates }) {
                 <StudentList studentList={sortedStudentList} />
             </Route>
             <Route exact path={`${match.url}/:ID`}>
-                <Student studentList={studentList} onDelete={onDelete} dueDates={dueDates} />
+                <Student studentList={studentList} onDelete={onDelete} dueDates={dueDates} setDueDates={setDueDates} />
             </Route>
         </div>
     );

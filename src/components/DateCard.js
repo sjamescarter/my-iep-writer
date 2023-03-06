@@ -1,6 +1,7 @@
 import React from "react";
 import { calculateDate, calculateColor } from "./CalculateDate";
 import styled from "styled-components";
+import { patchRequest } from "./Fetch";
 
 const StyledLi = styled.li`
     border-radius: 1em;
@@ -22,10 +23,11 @@ const StyledButton = styled.button`
 
     &:hover {
         cursor: pointer;
+
     }
 `
 
-function DateCard({ date, student }) {
+function DateCard({ date, student, setDueDates }) {
     const {firstName, lastName, iepDate} = student;
     const dueDate = calculateDate(iepDate, date.days);
     const day = dueDate.getDay();
@@ -52,8 +54,11 @@ function DateCard({ date, student }) {
                 <small>{firstName} {lastName}</small>
             </div>
             <strong style={{ fontSize: "1.25em" }}>{dayIs}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}</strong>
-            <StyledButton style={{ color: color }}>
-                <strong>Complete</strong>
+            <StyledButton 
+                onClick={() => patchRequest("/dates", date.id, { completed: !date.completed }, setDueDates)} 
+                style={{ color: color }}
+            >
+                <strong>{date.completed ? "Done!" : "Complete"}</strong>
             </StyledButton>
         </StyledLi>
     );

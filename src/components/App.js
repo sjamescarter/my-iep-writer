@@ -49,23 +49,23 @@ function App() {
     history.push("/students");
     deleteRequest("/students", id, setStudentList, studentList);
   };
-
+console.log(dueDates)
   return (
     <div>
       <Header></Header>
       <Container style={{ minHeight: height}}>
         <Switch>
           <Route exact path="/">
-            <Dashboard dueDates={orderedDueDates} studentList={studentList} />
+            <Dashboard dueDates={orderedDueDates} studentList={studentList} setDueDates={setDueDates} />
           </Route>
           <Route path="/calendar">
-            <Calendar dueDates={orderedDueDates} studentList={studentList} />
+            <Calendar dueDates={orderedDueDates} studentList={studentList} setDueDates={setDueDates} />
           </Route>
           <Route exact path="/students/new">
             <AddStudent onSubmit={onSubmit} />
           </Route>
           <Route path="/students">
-            <Students studentList={studentList} onDelete={onDelete} dueDates={dueDates} />
+            <Students studentList={studentList} onDelete={onDelete} dueDates={dueDates} setDueDates={setDueDates} />
           </Route>
           {/* <Route path="/settings">
             <Settings />

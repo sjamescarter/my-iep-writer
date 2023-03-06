@@ -1,14 +1,11 @@
 import React from "react";
 import DateCard from "./DateCard";
 
-function DatesList({ dueDates, studentList }) {
+function DatesList({ dueDates, studentList, setDueDates }) {
     return (
         dueDates.map(date => {
             const student = studentList.find(student => student.studentNumber === date.studentNumber);
-
-            if(date.completed === false) {
-                return <DateCard key={date.id} date={date} student={student} />;
-            }
+            return <DateCard key={date.id} date={date} student={student} setDueDates={setDueDates} />;
         })
     );
 }

@@ -18,6 +18,19 @@ function postRequest(endpoint, newData, setState) {
   .then(student => setState((currentState) => [...currentState, student]));
 }
 
+function patchRequest(endpoint, id, newData, setState) {
+  fetch(API + endpoint + "/" + id, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newData)
+  })
+  .then(r => r.json())
+  // .then(data => console.log(data))
+  .then(data => setState((currentState) => [...currentState.filter(state => state.id !== id), data]));
+}
+
 function deleteRequest(endpoint, id, setState) {
   fetch(API + endpoint + "/" + id, {
     method: "DELETE",
@@ -28,4 +41,4 @@ function deleteRequest(endpoint, id, setState) {
   .then(setState((currentState) => currentState.filter(student => student.id !== id)));
 }
 
-export { getRequest, postRequest, deleteRequest };
+export { getRequest, postRequest, deleteRequest, patchRequest };

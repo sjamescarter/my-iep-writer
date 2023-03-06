@@ -25,6 +25,12 @@ function createAnnualDates(studentNumber, setState) {
             title: "IEP Rough Draft",
             days: 3,
             completed: false
+        },
+        {
+            studentNumber: studentNumber,
+            title: "IEP Meeting",
+            days: 0,
+            completed: false
         }
     ];
 

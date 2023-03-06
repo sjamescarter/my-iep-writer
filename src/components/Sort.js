@@ -1,5 +1,3 @@
-import React from "react";
-
 function sortABC(list) {
     const abc = [...list].sort((a, b) => {
         const nameA = a.firstName.toUpperCase();

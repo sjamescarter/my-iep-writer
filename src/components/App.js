@@ -30,6 +30,7 @@ function App() {
   });
   
   const history = useHistory();
+  const height = window.innerHeight - 300;
 
   useEffect(() => {
     getRequest("/students", setStudentList)
@@ -52,7 +53,7 @@ function App() {
   return (
     <div>
       <Header></Header>
-      <Container style={{ minHeight: window.innerHeight - 300}}>
+      <Container style={{ minHeight: height}}>
         <Switch>
           <Route exact path="/">
             <Dashboard dueDates={orderedDueDates} studentList={studentList} />

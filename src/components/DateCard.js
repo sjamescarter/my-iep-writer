@@ -1,9 +1,8 @@
 import React from "react";
-import { calculateDate } from "./CalculateDate";
+import { calculateDate, calculateColor } from "./CalculateDate";
 import styled from "styled-components";
 
 const StyledLi = styled.li`
-    background: #FE6D73;
     border-radius: 1em;
     color: #FEF9EF;
     display: grid;
@@ -11,15 +10,13 @@ const StyledLi = styled.li`
     list-style-type: none;
     margin: 1em 0;
     padding: 1em;
-    text-align: justify;
-    text-justify: inter-word;
 `
 
 const StyledButton = styled.button`
     background: #FEF9EF;
     border: none;
     border-radius: .75em;
-    color: #FE6D73;
+    color: #36A9D3;
     padding: .75em;
     margin: 0 1em;
 
@@ -32,18 +29,19 @@ const StyledButton = styled.button`
 
 function DateCard({ date, student }) {
     const {firstName, lastName, iepDate} = student;
+    const color = date.completed ? "#17C3B2" : calculateColor(iepDate, date.days);
 
     return (
-        <StyledLi>
+        <StyledLi style={{ background: color }}>
             <div>
                 <em>{date.title}</em>
                 <br></br>
                 <small>{firstName} {lastName}</small>
             </div>
             <big>
-                <strong>{calculateDate(iepDate, date.days)}</strong>
+                <strong>{calculateDate(iepDate, date.days).toDateString()}</strong>
             </big>
-            <StyledButton>
+            <StyledButton style={{ color: color }}>
                 <strong>Complete</strong>
             </StyledButton>
         </StyledLi>

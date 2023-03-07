@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import DatesList from "./DatesList";
-import SortBy from "./SortBy";
-import { sortABC, sortIEP } from "./Sort";
 
-function Calendar({ dueDates, studentList, setDueDates }) {
-    const [sortBy, setSortBy] = useState('none');
+function Calendar({ dueDates, studentList, setDueDates }) {        
+    const incompleteDates = [...dueDates].filter(date => date.completed === false);
+    const completeDates = [...dueDates].filter(date => date.completed === true);
 
-    const sortedDueDates = sortBy === 'none' 
-    ? dueDates
-    : sortBy === 'name'
-        ? sortABC()
-        : sortIEP();
-        
     return (
         <div>
             <h2>Calendar</h2>
-            <SortBy sortBy={sortBy} setSortBy={setSortBy} />
-            <DatesList dueDates={sortedDueDates} studentList={studentList} setDueDates={setDueDates} />
+            <DatesList dueDates={incompleteDates} studentList={studentList} setDueDates={setDueDates} />
+            <h2>Done! 😅</h2>
+            <DatesList dueDates={completeDates} studentList={studentList} setDueDates={setDueDates} />
         </div>
     );
 }

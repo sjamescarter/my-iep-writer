@@ -44,7 +44,7 @@ function DateCard({ date, student, setDueDates }) {
         : day === 5
         ? "Friday"
         : "Saturday"
-    const color = date.completed ? "#17C3B2" : calculateColor(iepDate, date.days); 
+    const color = date.completed ? "#36A9D3" : calculateColor(iepDate, date.days); 
     
     return (
         <StyledLi style={{ background: color }}>

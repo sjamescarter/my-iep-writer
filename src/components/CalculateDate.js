@@ -15,7 +15,7 @@ function calculateColor(iepDate, days) {
     const oneWeek = new Date(newDeadline.getFullYear(), newDeadline.getMonth(), newDeadline.getDate() - 7)
     
     if(today < twoWeeks) {
-        return color = "#36A9D3";
+        return color = "#17C3B2";
     } else if (today <= oneWeek) {
         return color = "#FFA10A";
     } else {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DatesList from "./DatesList";
 
 function Calendar({ dueDates, studentList, setDueDates }) {        

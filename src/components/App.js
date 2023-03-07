@@ -49,7 +49,7 @@ function App() {
     history.push("/students");
     deleteRequest("/students", id, setStudentList, studentList);
   };
-console.log(dueDates)
+
   return (
     <div>
       <Header></Header>

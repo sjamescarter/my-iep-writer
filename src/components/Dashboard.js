@@ -6,8 +6,8 @@ import StudentList from "./StudentList";
 
 function Dashboard({ dueDates, studentList, setDueDates }) {
     const history = useHistory();
-
-    const upcomingDates = [...dueDates].filter(dueDate => {
+    const incompleteDates = [...dueDates].filter(date => date.completed === false);
+    const upcomingDates = [...incompleteDates].filter(dueDate => {
         const {iepDate} = [...studentList].find(student => student.studentNumber === dueDate.studentNumber);
         const date = new Date(calculateDate(iepDate, dueDate.days));
         const today = new Date();

@@ -14,20 +14,6 @@ const StyledLi = styled.li`
     padding: 1em;
 `
 
-// const StyledButton = styled.button`
-//     background: #FEF9EF;
-//     border: none;
-//     border-radius: .75em;
-//     color: #36A9D3;
-//     padding: .75em;
-//     margin: 0 1em;
-
-//     &:hover {
-//         cursor: pointer;
-
-//     }
-// `
-
 function DateCard({ date, student, setDueDates }) {
     const {firstName, lastName, iepDate} = student;
     const dueDate = calculateDate(iepDate, date.days);

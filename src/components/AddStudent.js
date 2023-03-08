@@ -24,6 +24,7 @@ const StyledSubmit = styled.input`
     margin: 2.5em 0 .25em;
 
     &:hover {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
         cursor: pointer;
     }
 `

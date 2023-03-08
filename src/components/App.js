@@ -21,15 +21,19 @@ export { Container }
 function App() {
   const [ studentList, setStudentList ] = useState([]);
   const [ dueDates, setDueDates ] = useState([]);
-  
-  const orderedDueDates = [...dueDates].sort((a, b) => {
-    const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
-    const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
-    return dateA - dateB;
-  });
-  
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const history = useHistory();
-  const height = window.innerHeight - 300;
+  
+  const getHeight = () => setWindowHeight(window.innerHeight);
+  const height = windowHeight - 300;
+
+  useEffect(() => {
+    window.addEventListener("resize", getHeight);
+
+    return (() => {
+      window.removeEventListener("resize", getHeight);
+    })
+  }, [windowHeight])
 
   useEffect(() => {
     getRequest("/students", setStudentList)
@@ -49,6 +53,12 @@ function App() {
     history.push("/students");
     deleteRequest("/students", id, setStudentList, studentList);
   };
+
+  const orderedDueDates = [...dueDates].sort((a, b) => {
+    const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
+    const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
+    return dateA - dateB;
+  });
 
   return (
     <div>

@@ -11,13 +11,11 @@ function Student({ studentList, onDelete, dueDates, setDueDates }) {
     return (
         <div>
             <h3>{student.firstName} {student.lastName}</h3>
-            <small>IEP: {student.iepDate}</small>
             {studentDates.map(date => {
                 return <DateCard key={date.id} date={date} student={student} setDueDates={setDueDates} />
             })}
             <br></br>
-            <Button >Edit</Button>
-            <Button onClick={() => onDelete(student.id)} style={{ margin: "0 1em" }}>Delete</Button>
+            <Button onClick={() => onDelete(student.id)}>Delete</Button>
         </div>
     )
 }

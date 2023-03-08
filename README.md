@@ -8,19 +8,17 @@ This application uses a db.json server. The server repo can be found at https://
 
 ## Dates
 
-At this time, the dates to be calculated for each student are located in the Dates.js component. New or different dates can only be added programatically at this time. To add new dates, update the Dates component with objects that correspond to the existing format. 
+At this time, the dates to be calculated for each student are located in the Dates.js component. New or different dates can only be added programatically. To add new dates, update the Dates component with objects that correspond to the following format. The studentNumber is not the same as student.id. The `days` key value is the number of weekdays to be calculated before the corresponding IEP event. 
 
-```react
+```js
 {
-    studentNumber: studentNumber,
-    title: "Domain Meeting",
-    days: 60,
+    studentNumber: studentNumber, // This variable refers connects the date to the student
+    title: "Event Title", 
+    days: 60, // Number of weekdays prior to the IEP date
     completed: false
 }
 ```
 
-Date calculations use logic to keep deadlines on weekdays.
-
 ## Video
 
-Check out a walk-through of this app at https://watch.screencastify.com/v/FRAbXmxkoCcO64V16m9o.
+Check out a walk-through of this app at: https://watch.screencastify.com/v/FRAbXmxkoCcO64V16m9o.

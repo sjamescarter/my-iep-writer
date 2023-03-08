@@ -20,3 +20,7 @@ At this time, the dates to be calculated for each student are located in the Dat
 ```
 
 Date calculations use logic to keep deadlines on weekdays.
+
+## Video
+
+Check out a walk-through of this app at https://watch.screencastify.com/v/FRAbXmxkoCcO64V16m9o.

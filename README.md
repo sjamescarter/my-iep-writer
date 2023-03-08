@@ -8,7 +8,7 @@ This application uses a db.json server. The server repo can be found at https://
 
 ## Dates
 
-At this time, the dates to be calculated for each student are located in the Dates.js component. New or different dates can only be added programatically. To add new dates, update the Dates component with objects that correspond to the following format. The studentNumber is not the same as student.id. The `days` key value is the number of weekdays to be calculated before the corresponding IEP event. 
+At this time, the dates to be calculated for each student are located in the Dates.js component. New or different dates can only be added programatically. To add new dates, update the Dates component with objects that correspond to the following format. The studentNumber is not the same as student.id. The `days` key value is the number of weekdays to be calculated before the corresponding IEP event. Dates added to Dates.js are calculated upon the Add Student form submission.
 
 ```js
 {

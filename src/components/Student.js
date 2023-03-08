@@ -16,9 +16,8 @@ function Student({ studentList, onDelete, dueDates, setDueDates }) {
                 return <DateCard key={date.id} date={date} student={student} setDueDates={setDueDates} />
             })}
             <br></br>
-            <Button>Edit</Button>
-            <Button onClick={() => onDelete(student.id)}>Delete</Button>
-            <br></br>
+            <Button >Edit</Button>
+            <Button onClick={() => onDelete(student.id)} style={{ margin: "0 1em" }}>Delete</Button>
         </div>
     )
 }

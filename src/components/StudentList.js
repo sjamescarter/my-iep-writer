@@ -1,6 +1,7 @@
 import React from "react";
 import StudentCard, { CardDiv } from "./StudentCard"
 import { useHistory } from "react-router-dom";
+import Button from "./Button";
 
 function StudentList({ studentList }) {
     const history = useHistory();
@@ -24,7 +25,7 @@ function StudentList({ studentList }) {
                 onClick={() => history.push("/students/new")}
             >
                 <h3>Add New Student</h3>
-                <button>+</button>
+                {/* <Button> + </Button> */}
             </CardDiv>
         </div>
     );

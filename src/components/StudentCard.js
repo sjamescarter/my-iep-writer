@@ -1,16 +1,21 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import CalculateDate from "./CalculateDate";
 
 const CardDiv = styled.div`
     background: #FFCB77;
     border: none;
     border-radius: 1em;
     display: block;
-    margin: 0em;
+    margin: 0;
     padding: 0 1em 1em;
     text-decoration: none;
+    width: 275px;
+
+    &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);; 
+        cursor: pointer
+    }
 `
 
 const Heading = styled.h3`

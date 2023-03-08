@@ -12,7 +12,7 @@ At this time, the dates to be calculated for each student are located in the Dat
 
 ```js
 {
-    studentNumber: studentNumber, // This variable refers connects the date to the student
+    studentNumber: studentNumber, // This variable references the student
     title: "Event Title", 
     days: 60, // Number of weekdays prior to the IEP date
     completed: false

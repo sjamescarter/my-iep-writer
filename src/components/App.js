@@ -42,6 +42,7 @@ function App() {
   }
 
   function onDelete(id) {
+    alert("This is permanent")
     const {studentNumber} = studentList.find(student => student.id === id);
     const studentDates = dueDates.filter(dates => dates.studentNumber === studentNumber);
     studentDates.map(date => deleteRequest("/dates", date.id, setDueDates, dueDates));
@@ -64,7 +65,7 @@ function App() {
             <AddStudent onSubmit={onSubmit} />
           </Route>
           <Route path="/students">
-            <Students studentList={studentList} onDelete={onDelete} dueDates={dueDates} setDueDates={setDueDates} />
+            <Students studentList={studentList} onDelete={onDelete} dueDates={orderedDueDates} setDueDates={setDueDates} />
           </Route>
         </Switch>
       </Container>

@@ -2,6 +2,7 @@ import React from "react";
 import { calculateDate, calculateColor } from "./CalculateDate";
 import styled from "styled-components";
 import { patchRequest } from "./Fetch";
+import Button from "./Button";
 
 const StyledLi = styled.li`
     border-radius: 1em;
@@ -13,19 +14,19 @@ const StyledLi = styled.li`
     padding: 1em;
 `
 
-const StyledButton = styled.button`
-    background: #FEF9EF;
-    border: none;
-    border-radius: .75em;
-    color: #36A9D3;
-    padding: .75em;
-    margin: 0 1em;
+// const StyledButton = styled.button`
+//     background: #FEF9EF;
+//     border: none;
+//     border-radius: .75em;
+//     color: #36A9D3;
+//     padding: .75em;
+//     margin: 0 1em;
 
-    &:hover {
-        cursor: pointer;
+//     &:hover {
+//         cursor: pointer;
 
-    }
-`
+//     }
+// `
 
 function DateCard({ date, student, setDueDates }) {
     const {firstName, lastName, iepDate} = student;
@@ -54,12 +55,15 @@ function DateCard({ date, student, setDueDates }) {
                 <small>{firstName} {lastName}</small>
             </div>
             <strong style={{ fontSize: "1.25em" }}>{dayIs}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}</strong>
-            <StyledButton 
+            <Button 
                 onClick={() => patchRequest("/dates", date.id, { completed: !date.completed }, setDueDates)} 
-                style={{ color: color }}
+                style={{ 
+                    background: "#FEF9EF",
+                    color: color 
+                }}
             >
                 <strong>{date.completed ? "Done!" : "Complete"}</strong>
-            </StyledButton>
+            </Button>
         </StyledLi>
     );
 }

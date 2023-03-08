@@ -18,6 +18,7 @@ function Student({ studentList, onDelete, dueDates, setDueDates }) {
             <br></br>
             <Button>Edit</Button>
             <Button onClick={() => onDelete(student.id)}>Delete</Button>
+            <br></br>
         </div>
     )
 }

@@ -8,15 +8,17 @@ const StyledButton = styled.button`
     padding: 1em;
 
     &:hover {
-        background: #2892B8;
-        color: #FEF9EF;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
         cursor: pointer;
     }
 `
 
-function Button({ onClick, children }) {
+// background: #2892B8;
+// color: #FEF9EF;
+
+function Button({ onClick, style, children }) {
     return (
-        <StyledButton onClick={onClick}>{children}</StyledButton>
+        <StyledButton onClick={onClick} style={style} >{children}</StyledButton>
     );
 }
 

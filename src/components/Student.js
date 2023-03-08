@@ -7,9 +7,14 @@ function Student({ studentList, onDelete, dueDates, setDueDates }) {
     const student = studentList.find(student => student.id === parseInt(params.ID));
     const studentDates = dueDates.filter(date => date.studentNumber === student.studentNumber);
 
+    function handleClick() {
+        return <input type="text" value={student.firstName} />
+    }
+    
     return (
         <div>
-            <h3>{student.firstName} {student.lastName}</h3>
+            <h3 onClick={handleClick}>{student.firstName} {student.lastName}</h3>
+            <small>IEP: {student.iepDate}</small>
             {studentDates.map(date => {
                 return <DateCard key={date.id} date={date} student={student} setDueDates={setDueDates} />
             })}

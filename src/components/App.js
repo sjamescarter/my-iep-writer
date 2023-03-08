@@ -5,7 +5,6 @@ import Dashboard from './Dashboard';
 import Calendar from './Calendar';
 import Students from './Students';
 import AddStudent from './AddStudent';
-// import Settings from './Settings';
 import Footer from './Footer';
 import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './Fetch';
@@ -67,9 +66,6 @@ function App() {
           <Route path="/students">
             <Students studentList={studentList} onDelete={onDelete} dueDates={dueDates} setDueDates={setDueDates} />
           </Route>
-          {/* <Route path="/settings">
-            <Settings />
-          </Route> */}
         </Switch>
       </Container>
       <Footer></Footer>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
+import Button from "./Button";
 import { calculateDate } from "./CalculateDate";
 import DatesList from "./DatesList";
 import StudentList from "./StudentList";
@@ -14,13 +15,15 @@ function Dashboard({ dueDates, studentList, setDueDates }) {
         return date > today;
     })
 
+    const seeMore = () => history.push("/calendar")
+
     return (
         <div>
             <h2>Dashboard</h2>
             <div>
                 <h3>Upcoming Due Dates</h3>
                 <DatesList dueDates={upcomingDates.slice(0, 3)} studentList={studentList} setDueDates={setDueDates} />
-                <button onClick={() => history.push("/calendar")}>See More</button>
+                <Button onClick={() => history.push("/calendar")}>See More</Button>
             </div>
             <br></br>
             <div>

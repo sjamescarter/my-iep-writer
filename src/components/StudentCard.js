@@ -30,15 +30,18 @@ const InnerDiv = styled.div`
 
 function StudentCard({ student }) {
     const history = useHistory();
-    const birthdate = new Date(student.birthdate);
-    const iepDate = new Date(student.iepDate);
+    const birthdate = new Date(student.birthdate.replace(/-/g, '\/'));
+    const iepDate = new Date(student.iepDate.replace(/-/g, '\/'));
 
     return (
         <CardDiv onClick={() => history.push(`/students/${student.id}`)}>
             <Heading>{student.firstName} {student.lastName}</Heading>
             <InnerDiv>
-                <small>Birthdate: {birthdate.toDateString()} 🎂</small>
-                <p>IEP Meeting: {iepDate.toDateString()}</p>
+                <p>
+                    Birthdate 🎂: {birthdate.toDateString()}
+                    <br></br>
+                    IEP Meeting: {iepDate.toDateString()}
+                </p>
             </InnerDiv>
         </CardDiv>
     );

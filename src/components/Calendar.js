@@ -5,6 +5,8 @@ function Calendar({ dueDates, studentList, setDueDates }) {
     const incompleteDates = [...dueDates].filter(date => date.completed === false);
     const completeDates = [...dueDates].filter(date => date.completed === true);
 
+    
+
     return (
         <div>
             <h2>Calendar</h2>

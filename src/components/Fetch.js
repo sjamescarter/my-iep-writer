@@ -1,12 +1,12 @@
 const API = "http://localhost:3000"
 
-function getRequest(endpoint, setState) {
+export function getRequest(endpoint, setState) {
   fetch(API + endpoint)
   .then(r => r.json())
   .then(data => setState(data));
 }
 
-function postRequest(endpoint, newData, setState) {
+export function postRequest(endpoint, newData, setState) {
   fetch(API + endpoint, {
     method: "POST",
     headers: {
@@ -18,7 +18,7 @@ function postRequest(endpoint, newData, setState) {
   .then(student => setState((currentState) => [...currentState, student]));
 }
 
-function patchRequest(endpoint, id, newData, setState) {
+export function patchRequest(endpoint, id, newData, setState) {
   fetch(API + endpoint + "/" + id, {
     method: "PATCH",
     headers: {
@@ -27,11 +27,10 @@ function patchRequest(endpoint, id, newData, setState) {
     body: JSON.stringify(newData)
   })
   .then(r => r.json())
-  // .then(data => console.log(data))
   .then(data => setState((currentState) => [...currentState.filter(state => state.id !== id), data]));
 }
 
-function deleteRequest(endpoint, id, setState) {
+export function deleteRequest(endpoint, id, setState) {
   fetch(API + endpoint + "/" + id, {
     method: "DELETE",
     headers: {
@@ -40,5 +39,3 @@ function deleteRequest(endpoint, id, setState) {
   })
   .then(setState((currentState) => currentState.filter(student => student.id !== id)));
 }
-
-export { getRequest, postRequest, deleteRequest, patchRequest };

@@ -14,9 +14,6 @@ const StyledButton = styled.button`
     }
 `
 
-// background: #2892B8;
-// color: #FEF9EF;
-
 function Button({ onClick, style, children }) {
     return (
         <StyledButton onClick={onClick} style={style} >{children}</StyledButton>

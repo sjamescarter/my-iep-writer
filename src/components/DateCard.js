@@ -1,7 +1,7 @@
 import React from "react";
 import { calculateDate, calculateColor } from "./CalculateDate";
 import styled from "styled-components";
-import { patchRequest } from "./Fetch";
+import { patchRequest } from "./fetch";
 import Button from "./Button";
 
 const StyledLi = styled.li`

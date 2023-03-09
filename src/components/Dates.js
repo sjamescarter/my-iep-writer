@@ -1,4 +1,4 @@
-import { postRequest } from "./Fetch";
+import { postRequest } from "./fetch";
 
 function createAnnualDates(studentNumber, setState) {
     const annualDates = [

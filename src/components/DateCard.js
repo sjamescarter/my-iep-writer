@@ -1,5 +1,5 @@
 import React from "react";
-import { calculateDate, calculateColor } from "./CalculateDate";
+import { calculateDate, calculateColor } from "./calculate";
 import styled from "styled-components";
 import { patchRequest } from "./fetch";
 import Button from "./Button";

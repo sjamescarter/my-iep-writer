@@ -9,7 +9,7 @@ import Footer from './Footer';
 import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './fetch';
 import { createAnnualDates } from './Dates';
-import { calculateDate } from './CalculateDate';
+import { calculateDate } from './calculate';
 
 const Container = styled.div`
   margin: auto;

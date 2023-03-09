@@ -1,6 +1,6 @@
 const today = new Date();
 
-function calculateDate(iepDate, days) {
+export function calculateDate(iepDate, days) {
     const [ year, month, day ] = iepDate.split("-");
     const totalDays = Math.ceil(days * 7/5)
     const newDeadline = new Date(year, month - 1, day - totalDays);
@@ -8,7 +8,7 @@ function calculateDate(iepDate, days) {
     return newDeadline;
 }
 
-function calculateColor(iepDate, days) {
+export function calculateColor(iepDate, days) {
     let color;
     const newDeadline = new Date(calculateDate(iepDate, days));
     const twoWeeks = new Date(newDeadline.getFullYear(), newDeadline.getMonth(), newDeadline.getDate() - 14)
@@ -22,5 +22,3 @@ function calculateColor(iepDate, days) {
         return color = "#FE6D73";
     }
 }
-
-export { calculateDate, calculateColor };

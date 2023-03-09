@@ -25,7 +25,6 @@ function NavBar() {
             <StyledNavLink to="/calendar" activeStyle={activeStyle}>Calendar</StyledNavLink>
             <StyledNavLink to="/students" exact activeStyle={activeStyle}>Students</StyledNavLink>
             <StyledNavLink to="/students/new"activeStyle={activeStyle}>Add Student</StyledNavLink>
-            {/* <StyledNavLink to="/settings"activeStyle={activeStyle}>Settings</StyledNavLink> */}
         </div>
     );
 }

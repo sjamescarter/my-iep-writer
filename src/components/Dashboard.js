@@ -15,8 +15,6 @@ function Dashboard({ dueDates, studentList, setDueDates }) {
         return date > today;
     })
 
-    const seeMore = () => history.push("/calendar")
-
     return (
         <div>
             <h2>Dashboard</h2>

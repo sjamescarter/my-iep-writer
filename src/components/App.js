@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import Header from './Header';
 import Dashboard from './Dashboard';
 import Calendar from './Calendar';
+import Student from './Student';
 import Students from './Students';
 import AddStudent from './AddStudent';
 import Footer from './Footer';
@@ -22,6 +23,7 @@ function App() {
   const [ studentList, setStudentList ] = useState([]);
   const [ dueDates, setDueDates ] = useState([]);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const match = useRouteMatch()
   const history = useHistory();
   
   const getHeight = () => setWindowHeight(window.innerHeight);
@@ -73,8 +75,11 @@ function App() {
           <Route exact path="/students/new">
             <AddStudent onSubmit={onSubmit} />
           </Route>
-          <Route path="/students">
-            <Students studentList={studentList} onDelete={onDelete} dueDates={orderedDueDates} setDueDates={setDueDates} />
+          <Route exact path={"/students/:ID"}>
+                <Student studentList={studentList} onDelete={onDelete} dueDates={dueDates} setDueDates={setDueDates} />
+            </Route>
+          <Route exact path="/students">
+            <Students studentList={studentList} />
           </Route>
         </Switch>
       </Container>

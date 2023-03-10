@@ -1,4 +1,4 @@
-function sortABC(list) {
+export function sortABC(list) {
     const abc = [...list].sort((a, b) => {
         const nameA = a.firstName.toUpperCase();
         const nameB = b.firstName.toUpperCase();
@@ -14,7 +14,7 @@ function sortABC(list) {
     return abc;
 }
 
-function sortIEP(list) {
+export function sortIEP(list) {
     const iep = [...list].sort((a, b) => {
         const dateA = new Date(a.iepDate);
         const dateB = new Date(b.iepDate);
@@ -23,5 +23,3 @@ function sortIEP(list) {
 
     return iep;
 }
-
-export { sortABC, sortIEP };

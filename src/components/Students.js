@@ -3,7 +3,7 @@ import { Route, useRouteMatch } from "react-router-dom";
 import StudentList from "./StudentList";
 import Student from "./Student";
 import SortBy from "./SortBy";
-import { sortABC, sortIEP } from "./Sort";
+import { sortABC, sortIEP } from "./sort";
 
 function Students({ studentList, onDelete, dueDates, setDueDates }) {
     const [sortBy, setSortBy] = useState('none');

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Dashboard from './Dashboard';
 import Calendar from './Calendar';
@@ -23,7 +23,6 @@ function App() {
   const [ studentList, setStudentList ] = useState([]);
   const [ dueDates, setDueDates ] = useState([]);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const match = useRouteMatch()
   const history = useHistory();
   
   const getHeight = () => setWindowHeight(window.innerHeight);
@@ -67,17 +66,30 @@ function App() {
       <Container style={{ minHeight: height}}>
         <Switch>
           <Route exact path="/">
-            <Dashboard dueDates={orderedDueDates} studentList={studentList} setDueDates={setDueDates} />
+            <Dashboard 
+              dueDates={orderedDueDates} 
+              studentList={studentList} 
+              setDueDates={setDueDates} 
+            />
           </Route>
           <Route path="/calendar">
-            <Calendar dueDates={orderedDueDates} studentList={studentList} setDueDates={setDueDates} />
+            <Calendar 
+              dueDates={orderedDueDates} 
+              studentList={studentList} 
+              setDueDates={setDueDates} 
+            />
           </Route>
           <Route exact path="/students/new">
             <AddStudent onSubmit={onSubmit} />
           </Route>
           <Route exact path={"/students/:ID"}>
-                <Student studentList={studentList} onDelete={onDelete} dueDates={dueDates} setDueDates={setDueDates} />
-            </Route>
+                <Student 
+                  studentList={studentList} 
+                  onDelete={onDelete} 
+                  dueDates={dueDates} 
+                  setDueDates={setDueDates} 
+                />
+          </Route>
           <Route exact path="/students">
             <Students studentList={studentList} />
           </Route>

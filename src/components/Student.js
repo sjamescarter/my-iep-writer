@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useParams } from "react-router-dom";
 import Button from "./Button";
 import DateCard from "./DateCard";
 
 function Student({ studentList, onDelete, dueDates, setDueDates }) {
     const params = useParams();
-    const student = studentList.find(student => student.id === parseInt(params.ID));
-    const studentDates = dueDates.filter(date => date.studentNumber === student.studentNumber);
+    const student = [...studentList].find(student => student.id === parseInt(params.ID));
+    const studentDates = [...dueDates].filter(date => date.studentNumber === student.studentNumber);
 
     return (
         <div>

@@ -3,8 +3,8 @@ import DatesList from "./DatesList";
 import { sortDates } from "./sort";
 
 function Calendar({ heading, dueDates, studentList, setDueDates }) {        
-    const incompleteDates = [...dueDates].filter(date => date.completed === false);
-    const completeDates = sortDates([...dueDates].filter(date => date.completed === true), [...studentList])
+    const incompleteDates = sortDates([...dueDates].filter(date => date.completed === false), [...studentList], true);
+    const completeDates = sortDates([...dueDates].filter(date => date.completed === true), [...studentList]);
 
     return (
         <div>

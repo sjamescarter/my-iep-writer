@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './fetch';
 import { createAnnualDates } from './Dates';
 import { sortDates } from './sort';
-import { calculateDate } from './calculate';
 
 const Container = styled.div`
   margin: auto;
@@ -81,12 +80,12 @@ function App() {
             <AddStudent onSubmit={onSubmit} />
           </Route>
           <Route exact path={"/students/:ID"}>
-                <Student 
-                  studentList={studentList} 
-                  onDelete={onDelete} 
-                  dueDates={dueDates} 
-                  setDueDates={setDueDates} 
-                />
+            <Student 
+              studentList={studentList} 
+              onDelete={onDelete} 
+              dueDates={dueDates} 
+              setDueDates={setDueDates} 
+            />
           </Route>
           <Route exact path="/students">
             <Students studentList={studentList} />

@@ -10,6 +10,7 @@ import Footer from './Footer';
 import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './fetch';
 import { createAnnualDates } from './Dates';
+import { sortDates } from './sort';
 import { calculateDate } from './calculate';
 
 const Container = styled.div`
@@ -54,12 +55,8 @@ function App() {
     deleteRequest("/students", id, setStudentList, studentList);
   };
 
-  const orderedDueDates = [...dueDates].sort((a, b) => {
-    const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
-    const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
-    return dateA - dateB;
-  });
-
+  const ascendingDates = sortDates([...dueDates], [...studentList], true)
+ 
   return (
     <div>
       <Header></Header>
@@ -67,14 +64,14 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Dashboard 
-              dueDates={orderedDueDates} 
+              dueDates={ascendingDates} 
               studentList={studentList} 
               setDueDates={setDueDates} 
             />
           </Route>
           <Route path="/calendar">
             <Calendar 
-              dueDates={orderedDueDates} 
+              dueDates={ascendingDates} 
               studentList={studentList} 
               setDueDates={setDueDates} 
             />

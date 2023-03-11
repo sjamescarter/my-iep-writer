@@ -1,9 +1,10 @@
 import React from "react";
 import DatesList from "./DatesList";
+import { sortDates } from "./sort";
 
 function Calendar({ dueDates, studentList, setDueDates }) {        
     const incompleteDates = [...dueDates].filter(date => date.completed === false);
-    const completeDates = [...dueDates].filter(date => date.completed === true);
+    const completeDates = sortDates([...dueDates].filter(date => date.completed === true), [...studentList])
 
     
 

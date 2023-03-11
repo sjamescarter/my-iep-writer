@@ -1,3 +1,5 @@
+import { calculateDate } from "./calculate";
+
 export function sortABC(list) {
     const abc = [...list].sort((a, b) => {
         const nameA = a.firstName.toUpperCase();
@@ -22,4 +24,15 @@ export function sortIEP(list) {
     });
 
     return iep;
+}
+
+export function sortDates(dateList, studentList, ascend) {
+    const sortedDates = [...dateList].sort((a, b) => {
+        const dateA = new Date(calculateDate(studentList.find(student => student.studentNumber === a.studentNumber).iepDate, a.days));
+        const dateB = new Date(calculateDate(studentList.find(student => student.studentNumber === b.studentNumber).iepDate, b.days));
+        
+        return ascend ? dateA - dateB : dateB - dateA;
+    });
+
+    return sortedDates;
 }

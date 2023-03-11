@@ -71,6 +71,7 @@ function App() {
           </Route>
           <Route path="/calendar">
             <Calendar 
+              heading="Calendar"
               dueDates={ascendingDates} 
               studentList={studentList} 
               setDueDates={setDueDates} 

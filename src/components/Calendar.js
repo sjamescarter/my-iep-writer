@@ -2,15 +2,16 @@ import React from "react";
 import DatesList from "./DatesList";
 import { sortDates } from "./sort";
 
-function Calendar({ dueDates, studentList, setDueDates }) {        
+function Calendar({ heading, dueDates, studentList, setDueDates }) {        
     const incompleteDates = [...dueDates].filter(date => date.completed === false);
     const completeDates = sortDates([...dueDates].filter(date => date.completed === true), [...studentList])
 
     return (
         <div>
-            <h2>Calendar</h2>
+            <h2>{heading}</h2>
+            <h3>Deadlines 😬</h3>
             <DatesList dueDates={incompleteDates} studentList={studentList} setDueDates={setDueDates} />
-            <h2>Done! 😅</h2>
+            <h3>Done! 😅</h3>
             <DatesList dueDates={completeDates} studentList={studentList} setDueDates={setDueDates} />
         </div>
     );

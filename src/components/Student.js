@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Button from "./Button";
+import Calendar from "./Calendar";
 import DateCard from "./DateCard";
 
 function Student({ studentList, onDelete, dueDates, setDueDates }) {
@@ -10,10 +11,12 @@ function Student({ studentList, onDelete, dueDates, setDueDates }) {
 
     return (
         <div>
-            <h3>{student.firstName} {student.lastName}</h3>
-            {studentDates.map(date => {
-                return <DateCard key={date.id} date={date} student={student} setDueDates={setDueDates} />
-            })}
+            <Calendar 
+                heading={student.firstName + " " + student.lastName}
+                dueDates={studentDates} 
+                studentList={[student]} 
+                setDueDates={setDueDates} 
+            />
             <br></br>
             <Button onClick={() => onDelete(student.id)} style={{ margin: "0 0 2em 0" }}>Delete</Button>
         </div>

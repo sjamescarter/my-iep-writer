@@ -1,8 +1,9 @@
 import React from "react";
-import { calculateDate, calculateColor } from "./calculate";
-import styled from "styled-components";
-import { patchRequest } from "./fetch";
+import { useHistory } from "react-router-dom";
 import Button from "./Button";
+import { calculateDate, calculateColor } from "./calculate";
+import { patchRequest } from "./fetch";
+import styled from "styled-components";
 
 const StyledLi = styled.li`
     border-radius: 1em;
@@ -15,7 +16,7 @@ const StyledLi = styled.li`
 `
 
 function DateCard({ date, student, setDueDates }) {
-    const {firstName, lastName, iepDate} = student;
+    const {firstName, lastName, iepDate, id} = student;
     const dueDate = calculateDate(iepDate, date.days);
     const day = dueDate.getDay();
     const dayIs = day === 0
@@ -32,15 +33,20 @@ function DateCard({ date, student, setDueDates }) {
         ? "Friday"
         : "Saturday"
     const color = date.completed ? "#36A9D3" : calculateColor(iepDate, date.days); 
-    
+    const history = useHistory();
+
     return (
         <StyledLi style={{ background: color }}>
             <div>
-                <em>{date.title}</em>
+                <strong>
+                    <em>{date.title}</em>
+                </strong>
                 <br></br>
                 <small>{firstName} {lastName}</small>
             </div>
-            <strong style={{ fontSize: "1.25em" }}>{dayIs}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}</strong>
+            <strong style={{ fontSize: "1.25em" }}>
+                {dayIs}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}
+            </strong>
             <Button 
                 onClick={() => patchRequest("/dates", date.id, { completed: !date.completed }, setDueDates)} 
                 style={{ 

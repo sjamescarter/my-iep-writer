@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Button from "./Button";
 import Calendar from "./Calendar";
-import DateCard from "./DateCard";
 
 function Student({ studentList, onDelete, dueDates, setDueDates }) {
     const params = useParams();

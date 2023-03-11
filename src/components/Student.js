@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Button from "./Button";
 import DateCard from "./DateCard";
@@ -15,7 +15,7 @@ function Student({ studentList, onDelete, dueDates, setDueDates }) {
                 return <DateCard key={date.id} date={date} student={student} setDueDates={setDueDates} />
             })}
             <br></br>
-            <Button onClick={() => onDelete(student.id)}>Delete</Button>
+            <Button onClick={() => onDelete(student.id)} style={{ margin: "0 0 2em 0" }}>Delete</Button>
         </div>
     )
 }

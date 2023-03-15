@@ -30,7 +30,7 @@ const StyledSubmit = styled.input`
 `
 
 function AddStudent({ onSubmit }) {
-    const [ formData, setFormData ] = useState({
+    const [formData, setFormData] = useState({
         studentNumber: "",
         firstName: "",
         lastName: "",
@@ -104,7 +104,7 @@ function AddStudent({ onSubmit }) {
                 />
                 <StyledSubmit
                     type="submit" 
-                    value="Add Student" 
+                    value="Create New Student" 
                 />
             </StyledForm>
         </div>

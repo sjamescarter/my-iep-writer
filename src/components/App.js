@@ -20,11 +20,11 @@ const Container = styled.div`
 export { Container }
 
 function App() {
-  const [ studentList, setStudentList ] = useState([]);
-  const [ dueDates, setDueDates ] = useState([]);
+  const [studentList, setStudentList] = useState([]);
+  const [dueDates, setDueDates] = useState([]);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const history = useHistory();
-  
+
   const getHeight = () => setWindowHeight(window.innerHeight);
   const height = windowHeight - 300;
 

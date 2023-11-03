@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import Header from './Header';
-import Dashboard from './Dashboard';
-import Calendar from './Calendar';
-import Student from './Student';
-import Students from './Students';
-import AddStudent from './AddStudent';
-import Footer from './Footer';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './fetch';
 import { createAnnualDates } from './Dates';
 import { sortDates } from './sort';
+import AddStudent from './AddStudent';
+import Calendar from './Calendar';
+import Dashboard from './Dashboard';
+import Footer from './Footer';
+import Header from './Header';
+import Student from './Student';
+import Students from './Students';
 
 const Container = styled.div`
   margin: auto;
@@ -34,7 +34,7 @@ function App() {
     return (() => {
       window.removeEventListener("resize", getHeight);
     })
-  }, [windowHeight])
+  }, [windowHeight]);
 
   useEffect(() => {
     getRequest("/students", setStudentList)
@@ -58,7 +58,7 @@ function App() {
  
   return (
     <div>
-      <Header></Header>
+      <Header />
       <Container style={{ minHeight: height}}>
         <Switch>
           <Route exact path="/">
@@ -92,7 +92,7 @@ function App() {
           </Route>
         </Switch>
       </Container>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

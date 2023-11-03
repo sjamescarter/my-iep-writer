@@ -1,39 +1,15 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import Button from "./Button";
+import { styled } from "styled-components";
 import { calculateDate, calculateColor } from "./calculate";
 import { patchRequest } from "./fetch";
-import styled from "styled-components";
-
-const StyledLi = styled.li`
-    border-radius: 1em;
-    color: #FEF9EF;
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    list-style-type: none;
-    margin: 1em 0;
-    padding: 1em;
-`
+import Button from "./Button";
 
 function DateCard({ date, student, setDueDates }) {
-    const {firstName, lastName, iepDate, id} = student;
+    const { firstName, lastName, iepDate } = student;
     const dueDate = calculateDate(iepDate, date.days);
-    const day = dueDate.getDay();
-    const dayIs = day === 0
-        ? "Sunday"
-        : day === 1 
-        ? "Monday"
-        : day === 2
-        ? "Tuesday"
-        : day === 3
-        ? "Wednesday"
-        : day === 4
-        ? "Thursday"
-        : day === 5
-        ? "Friday"
-        : "Saturday"
+    const dayId = dueDate.getDay();
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const color = date.completed ? "#36A9D3" : calculateColor(iepDate, date.days); 
-    const history = useHistory();
 
     return (
         <StyledLi style={{ background: color }}>
@@ -45,7 +21,7 @@ function DateCard({ date, student, setDueDates }) {
                 <small>{firstName} {lastName}</small>
             </div>
             <strong style={{ fontSize: "1.25em" }}>
-                {dayIs}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}
+                {days[dayId]}, {dueDate.getMonth() + 1}/{dueDate.getDate()}/{dueDate.getFullYear()}
             </strong>
             <Button 
                 onClick={() => patchRequest("/dates", date.id, { completed: !date.completed }, setDueDates)} 
@@ -59,5 +35,16 @@ function DateCard({ date, student, setDueDates }) {
         </StyledLi>
     );
 }
+
+// Styles
+const StyledLi = styled.li`
+    border-radius: 1em;
+    color: #FEF9EF;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 1em;
+`
 
 export default DateCard;

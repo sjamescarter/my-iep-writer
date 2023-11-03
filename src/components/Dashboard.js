@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
-import Button from "./Button";
 import { calculateDate } from "./calculate";
+import Button from "./Button";
 import DatesList from "./DatesList";
 import StudentList from "./StudentList";
 

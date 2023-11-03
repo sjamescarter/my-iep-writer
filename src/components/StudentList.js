@@ -1,21 +1,13 @@
 import React from "react";
 import StudentCard, { CardDiv } from "./StudentCard"
 import { useHistory } from "react-router-dom";
-import Button from "./Button";
+import styled from "styled-components";
 
 function StudentList({ studentList }) {
     const history = useHistory();
     
     return (
-        <div 
-            style={{ 
-                display: "grid", 
-                gridTemplateColumns: "repeat(auto-fill, minmax(275px, 1fr)", 
-                columnGap: "2em",
-                rowGap: "2em",
-                margin: "2em 0" 
-            }}
-        >
+        <Div>
             {studentList.map((student) => {
                 return <StudentCard key={student.id} student={student} />
             })}
@@ -25,10 +17,17 @@ function StudentList({ studentList }) {
                 onClick={() => history.push("/students/new")}
             >
                 <h3>Add New Student</h3>
-                {/* <Button> + </Button> */}
             </CardDiv>
-        </div>
+        </Div>
     );
 }
 
+// Styles
+const Div = styled.div`
+    display: grid; 
+    gridTemplateColumns: repeat(auto-fill, minmax(275px, 1fr)); 
+    columnGap: 2em;
+    rowGap: 2em;
+    margin: 2em 0;
+`
 export default StudentList;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { getRequest, postRequest, deleteRequest } from './fetch';
 import { createAnnualDates } from './Dates';
 import { sortDates } from './sort';

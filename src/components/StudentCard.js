@@ -2,6 +2,26 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
+function StudentCard({ student }) {
+    const history = useHistory();
+    const birthdate = new Date(student.birthdate.replace(/-/g, '/'));
+    const iepDate = new Date(student.iepDate.replace(/-/g, '/'));
+
+    return (
+        <CardDiv onClick={() => history.push(`/students/${student.id}`)}>
+            <Heading>{student.firstName} {student.lastName}</Heading>
+            <InnerDiv>
+                <p>
+                    Birthdate 🎂: {birthdate.toDateString()}
+                    <br></br>
+                    IEP Meeting: {iepDate.toDateString()}
+                </p>
+            </InnerDiv>
+        </CardDiv>
+    );
+}
+
+// Styles
 const CardDiv = styled.div`
     background: #FFCB77;
     border: none;
@@ -27,25 +47,6 @@ const InnerDiv = styled.div`
     border-radius 0 0 .5em .5em;
     padding: .25em 1em .5em;
 `
-
-function StudentCard({ student }) {
-    const history = useHistory();
-    const birthdate = new Date(student.birthdate.replace(/-/g, '\/'));
-    const iepDate = new Date(student.iepDate.replace(/-/g, '\/'));
-
-    return (
-        <CardDiv onClick={() => history.push(`/students/${student.id}`)}>
-            <Heading>{student.firstName} {student.lastName}</Heading>
-            <InnerDiv>
-                <p>
-                    Birthdate 🎂: {birthdate.toDateString()}
-                    <br></br>
-                    IEP Meeting: {iepDate.toDateString()}
-                </p>
-            </InnerDiv>
-        </CardDiv>
-    );
-}
 
 export { CardDiv };
 

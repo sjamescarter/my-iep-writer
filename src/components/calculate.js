@@ -16,7 +16,7 @@ export function calculateColor(iepDate, days) {
     
     if(today < twoWeeks) {
         return color = "#17C3B2";
-    } else if (today <= oneWeek) {
+    } else if(today <= oneWeek) {
         return color = "#FFA10A";
     } else {
         return color = "#FE6D73";

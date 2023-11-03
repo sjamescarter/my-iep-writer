@@ -1,19 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-const StyledNavLink = styled(NavLink)`
-    background: #227C9D;
-    border-radius: 1em;
-    color: #FEF9EF;
-    margin: 0 1em 0 0;
-    padding: .75em;
-    text-decoration: none;
-
-    &:hover {
-        background: #2892B8;
-    }
-`
 const activeStyle = {
     background: "#2892B8",
 }
@@ -28,5 +16,19 @@ function NavBar() {
         </div>
     );
 }
+
+// Styles
+const StyledNavLink = styled(NavLink)`
+    background: #227C9D;
+    border-radius: 1em;
+    color: #FEF9EF;
+    margin: 0 1em 0 0;
+    padding: .75em;
+    text-decoration: none;
+
+    &:hover {
+        background: #2892B8;
+    }
+`
 
 export default NavBar;

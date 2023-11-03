@@ -1,24 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
+function Footer() {
+    return (
+        <Div>
+            <P>
+                Copyright 2023 Stephen James Carter.
+                <br></br>
+                All rights reserved.
+            </P>
+            <P>Privacy Policy</P>
+        </Div>
+    );
+}
+
+// Styles
 const Div = styled.div`
     background-color: #0F3543;
     height: 112px;
     padding: 1em;
     text-align: center;
 `
-
-function Footer() {
-    return (
-        <Div>
-            <p style={{ color: "#FEF9EF" }}>
-                Copyright 2023 Stephen James Carter.
-                <br></br>
-                All rights reserved.
-            </p>
-            <p style={{ color: "#FEF9EF" }}>Privacy Policy</p>
-        </Div>
-    );
-}
-
+const P = styled.p`
+    color: #FEF9EF;
+`
 export default Footer;

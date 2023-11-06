@@ -25,9 +25,9 @@ function StudentList({ studentList }) {
 // Styles
 const Div = styled.div`
     display: grid; 
-    gridTemplateColumns: repeat(auto-fill, minmax(275px, 1fr)); 
-    columnGap: 2em;
-    rowGap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); 
+    column-gap: 2em;
+    row-gap: 2em;
     margin: 2em 0;
 `
 export default StudentList;
